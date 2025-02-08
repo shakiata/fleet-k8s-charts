@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: plex
+  namespace: media-stack
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: plex
+  template:
+    metadata:
+      labels:
+        app: plex
+    spec:
+      containers:
+        - name: plex
+          image: plexinc/pms-docker:latest
+          env:
+            - name: PLEX_CLAIM
+              valueFrom:
+                secretKeyRef:
+                  name: plex-claim-secret
+                  key: PLEX_CLAIM
+            - name: PUID
+              value: "1000"
+            - name: PGID
+              value: "1000"
+            - name: TZ
+              value: "America/New_York" # Replace with your timezone
+          ports:
+            - containerPort: 32400
+              protocol: TCP
+          volumeMounts:
+            - name: config
+              mountPath: /config
+            - name: transcode
+              mountPath: /transcode
+            - name: data
+              mountPath: /data
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: plex-config-pvc
+        - name: transcode
+          persistentVolumeClaim:
+            claimName: plex-transcode-pvc
+        - name: data
+          persistentVolumeClaim:
+            claimName: plex-data-pvc
+
+# kubectl create secret generic plex-claim-secret --from-literal=PLEX_CLAIM=asdsadsadsa -n plex
+
+           

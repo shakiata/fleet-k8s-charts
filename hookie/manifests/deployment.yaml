@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hookie
+  namespace: hookie
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hookie
+  template:
+    metadata:
+      labels:
+        app: hookie
+    spec:
+      containers:
+        - name: hookie
+          image: jtmb92/hookie:latest # Replace with your actual image
+          env:
+            - name: GITHUB_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: github-token-secret
+                  key: GITHUB_TOKEN
+            - name: DISCORD_WEBHOOK_PATTERN
+              value: "https://discord.com/api/webhooks"
+            - name: NOTIFICATION_WEBHOOK
+              valueFrom:
+                secretKeyRef:
+                  name: notification-webhook-secret
+                  key: NOTIFICATION_WEBHOOK
+            - name: NOTIFIED_WEBHOOKS_FILE
+              value: "/app/state/notified_webhooks.txt"
+            - name: PUID
+              value: "1000"
+            - name: PGID
+              value: "1000"
+          volumeMounts:
+            - name: hookie-storage
+              mountPath: /app/state
+          command: ["/bin/sh", "-c", "/app/entrypoint.sh --random"]
+      volumes:
+        - name: hookie-storage
+          persistentVolumeClaim:
+            claimName: hookie-pvc
+
+
+
+# kubectl create secret generic github-token-secret --from-literal=GITHUB_TOKEN=your-github-token -n hookie
+# kubectl create secret generic notification-webhook-secret --from-literal=NOTIFICATION_WEBHOOK=your-notification-webhook -n hookie
