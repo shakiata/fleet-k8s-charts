@@ -13,20 +13,6 @@ spec:
 
 ---
 apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: plex-transcode-pvc
-  namespace: media-stack
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
-  storageClassName: longhorn  # Explicitly set Longhorn as the storage class
-
----
-apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: plex-samba-pv
