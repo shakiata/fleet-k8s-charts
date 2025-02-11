@@ -27,11 +27,11 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: qbittorrent-login-secret
-                  key: protonvpn_user
+                  key: openvpn_user
             - name: OPENVPN_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: qbittorrent-login-secret
+                  name: openvpn_password
                   key: protonvpn_pass
             - name: VPN_TYPE
               value: openvpn
