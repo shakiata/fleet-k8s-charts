@@ -1,3 +1,4 @@
+---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
 metadata:
@@ -12,6 +13,7 @@ spec:
     releaseName: hookie-deployment
     targetNamespace: hookie
 
+---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
 metadata:
