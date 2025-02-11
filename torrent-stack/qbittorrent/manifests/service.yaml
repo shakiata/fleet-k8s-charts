@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: gluetun-service
+  name: qbittorrent-service
   namespace: torrent-stack
 spec:
   selector:
-    app: qbittorrent-vpn # Ensure the label matches your pod label
+    app: qbittorrent-vpn  # This must match the label in the Deployment
   ports:
     - protocol: TCP
       port: 8112

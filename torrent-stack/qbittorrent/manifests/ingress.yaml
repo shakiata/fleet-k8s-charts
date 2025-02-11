@@ -7,13 +7,13 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: qbittorrent.rancher-dev.branconet.lan
+    - host: qbittorrent.rancher-dev.branconet.lan  # Replace with your domain
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: gluetun-service
+                name: qbittorrent-service
                 port:
                   number: 8112
