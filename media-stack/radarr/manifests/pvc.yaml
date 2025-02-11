@@ -26,7 +26,7 @@ spec:
     driver: smb.csi.k8s.io
     volumeHandle: radarr-samba-share
     volumeAttributes:
-      source: "//192.168.0.3/plex_smb_share"  # Explicitly define the source field
+      source: "//$(SMB_IP)/plex_smb_share"  # Explicitly define the source field
       options: "uid=0,gid=0,forceuid,forcegid,file_mode=0755"
     nodeStageSecretRef:
       name: samba-secret

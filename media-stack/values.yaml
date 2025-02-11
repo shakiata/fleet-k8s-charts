@@ -1,0 +1,6 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: common-vars
+data:
+  SMB_IP: "192.168.0.3"
