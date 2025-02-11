@@ -1,19 +1,55 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: qbittorrent
+  name: qbittorrent-vpn
   namespace: torrent-stack
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: qbittorrent
+      app: qbittorrent-vpn
   template:
     metadata:
       labels:
-        app: qbittorrent
+        app: qbittorrent-vpn
     spec:
       containers:
+        - name: gluetun
+          image: qmcgaw/gluetun
+          securityContext:
+            capabilities:
+              add:
+                - NET_ADMIN
+          env:
+            - name: VPN_SERVICE_PROVIDER
+              value: protonvpn
+            - name: OPENVPN_USER
+              valueFrom:
+                secretKeyRef:
+                  name: qbittorrent-login-secret
+                  key: protonvpn_user
+            - name: OPENVPN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: qbittorrent-login-secret
+                  key: protonvpn_pass
+            - name: VPN_TYPE
+              value: openvpn
+            - name: PORT_FORWARD_ONLY
+              value: "on"
+            - name: VPN_PORT_FORWARDING
+              value: "on"
+            - name: VPN_PORT_FORWARDING_PROVIDER
+              value: protonvpn
+          volumeMounts:
+            - name: downloads
+              mountPath: /tmp/gluetun
+      volumes:
+        - name: downloads
+          persistentVolumeClaim:
+            claimName: gluetun-samba-pvc
+
+
         - name: qbittorrent
           image: lscr.io/linuxserver/qbittorrent:latest
           env:
