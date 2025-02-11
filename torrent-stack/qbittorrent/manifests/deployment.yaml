@@ -28,6 +28,7 @@ spec:
               value: "8112"
           ports:
             - containerPort: 8112
+            - containerPort: 6881
           volumeMounts:
             - name: config
               mountPath: /config
@@ -61,6 +62,9 @@ spec:
               value: "on"
             - name: VPN_PORT_FORWARDING_PROVIDER
               value: protonvpn
+          ports:
+            - containerPort: 8112
+            - containerPort: 6881
       volumes:
         - name: config
           persistentVolumeClaim:
