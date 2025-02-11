@@ -27,7 +27,6 @@ spec:
               value: "8112"
           ports:
             - containerPort: 8112
-              protocol: TCP
           volumeMounts:
             - name: config
               mountPath: /config
