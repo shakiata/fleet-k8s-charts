@@ -25,12 +25,12 @@ spec:
               value: "America/New_York" # Replace with your timezone
             - name: WEBUI_PORT
               value: "8112"
-            - name: qbittorrent_username
+            - name: QBITTORRENT_USERNAME
               valueFrom:
                 secretKeyRef:
                   name: qbittorrent-login-secret
                   key: qbittorrent-username
-            - name: qbittorrent_password
+            - name: QBITTORRENT_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: qbittorrent-login-secret
