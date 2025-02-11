@@ -16,7 +16,7 @@ spec:
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
-metadata:
+metadata: 
   name: media-stack-deployment
   namespace: fleet-local
 spec:
@@ -27,3 +27,19 @@ spec:
   helm:
     releaseName: media-stack
     targetNamespace: media-stack
+
+
+---
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: torrent-stack-deployment
+  namespace: fleet-local
+spec:
+  repo: "https://github.com/jtmb/fleet-k8s-charts.git"
+  branch: "master"
+  paths:
+    - "torrent-stack"
+  helm:
+    releaseName: torrent-stack
+    targetNamespace: torrent-stack
