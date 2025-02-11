@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gluetun
+  namespace: torrent-stack
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gluetun
+  template:
+    metadata:
+      labels:
+        app: gluetun
+    spec:
+      containers:
+        - name: gluetun-protonvpn
+          image: qmcgaw/gluetun:latest
+          securityContext:
+            capabilities:
+              add:
+                - NET_ADMIN
+          env:
+            - name: VPN_SERVICE_PROVIDER
+              value: "protonvpn"
+            - name: VPN_TYPE
+              value: "openvpn"
+            - name: PORT_FORWARD_ONLY
+              value: "on"
+            - name: VPN_PORT_FORWARDING
+              value: "on"
+            - name: VPN_PORT_FORWARDING_PROVIDER
+              value: "protonvpn"
+            - name: OPENVPN_USER
+              valueFrom:
+                secretKeyRef:
+                  name: protonvpn-credentials
+                  key: OPENVPN_USER
+            - name: OPENVPN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: protonvpn-credentials
+                  key: OPENVPN_PASSWORD"
+          ports:
+            - containerPort: 8112
+              protocol: TCP
+          volumeMounts:
+            - name: config
+              mountPath: /tmp/gluetun
+            - name: downloads
+              mountPath: /media_drive
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: gluetun-config-pvc
+        - name: downloads
+          persistentVolumeClaim:
+            claimName: gluetun-samba-pvc

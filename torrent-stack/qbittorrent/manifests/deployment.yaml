@@ -40,3 +40,4 @@ spec:
         - name: downloads
           persistentVolumeClaim:
             claimName: qbittorrent-samba-pvc
+      networkMode: "container:gluetun-protonvpn"
