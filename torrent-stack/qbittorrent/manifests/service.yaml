@@ -5,7 +5,7 @@ metadata:
   namespace: torrent-stack
 spec:
   selector:
-    app: qbittorrent
+    app: qbittorrent-vpn
   ports:
     - protocol: TCP
       port: 8112

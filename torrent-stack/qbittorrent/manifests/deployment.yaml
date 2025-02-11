@@ -41,14 +41,6 @@ spec:
               value: "on"
             - name: VPN_PORT_FORWARDING_PROVIDER
               value: protonvpn
-          volumeMounts:
-            - name: downloads
-              mountPath: /tmp/gluetun
-      volumes:
-        - name: downloads
-          persistentVolumeClaim:
-            claimName: gluetun-samba-pvc
-
 
         - name: qbittorrent
           image: lscr.io/linuxserver/qbittorrent:latest
@@ -69,6 +61,7 @@ spec:
               mountPath: /config
             - name: downloads
               mountPath: /media_drive
+
       volumes:
         - name: config
           persistentVolumeClaim:
@@ -76,4 +69,3 @@ spec:
         - name: downloads
           persistentVolumeClaim:
             claimName: qbittorrent-samba-pvc
-      networkMode: "container:gluetun-protonvpn"
