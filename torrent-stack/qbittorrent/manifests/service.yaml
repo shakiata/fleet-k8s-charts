@@ -8,6 +8,6 @@ spec:
     app: radarr
   ports:
     - protocol: TCP
-      port: 7878
-      targetPort: 7878
+      port: 8112
+      targetPort: 8112
   type: ClusterIP

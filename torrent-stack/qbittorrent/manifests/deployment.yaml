@@ -25,16 +25,6 @@ spec:
               value: "America/New_York" # Replace with your timezone
             - name: WEBUI_PORT
               value: "8112"
-            - name: QBITTORRENT_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: qbittorrent-login-secret
-                  key: qbittorrent-username
-            - name: QBITTORRENT_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: qbittorrent-login-secret
-                  key: qbittorrent-password
           ports:
             - containerPort: 8112
               protocol: TCP
