@@ -26,11 +26,11 @@ spec:
     driver: smb.csi.k8s.io
     volumeHandle: radarr-samba-share
     volumeAttributes:
-      source: 
+      cifsUrl: 
         secretRef:
           name: samba-secret
           key: source
-      mountOptions: 
+      options: 
         secretRef:
           name: samba-secret
           key: mountOptions
