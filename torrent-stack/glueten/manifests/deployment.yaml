@@ -35,12 +35,12 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: protonvpn-credentials
-                  key: OPENVPN_USER
+                  key: openvpn_user
             - name: OPENVPN_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: protonvpn-credentials
-                  key: OPENVPN_PASSWORD"
+                  key: openvpn_password
           ports:
             - containerPort: 8112
               protocol: TCP
