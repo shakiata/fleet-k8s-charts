@@ -45,3 +45,4 @@ spec:
     requests:
       storage: 1Gi
   volumeName: radarr-samba-pv
+  storageClassName: ""  # Ensures it binds to the manually created PV
