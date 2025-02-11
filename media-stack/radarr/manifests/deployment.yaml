@@ -37,4 +37,4 @@ spec:
             claimName: radarr-config-pvc
         - name: downloads
           persistentVolumeClaim:
-            claimName: radarr-samba-pvc
+            claimName: radarr-samba-pv
