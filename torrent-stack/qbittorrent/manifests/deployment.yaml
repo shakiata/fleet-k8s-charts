@@ -56,9 +56,9 @@ spec:
               value: "America/New_York" # Replace with your timezone
             - name: WEBUI_PORT
               value: "8112"
-          ports:
-            - containerPort: 8112
-              protocol: TCP
+          # ports:
+          #   - containerPort: 8112
+          #     protocol: TCP
           volumeMounts:
             - name: config
               mountPath: /config
