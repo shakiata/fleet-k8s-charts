@@ -26,4 +26,3 @@ spec:
       port: 8112
       targetPort: 8112
       nodePort: 30000  # Change this to a port number available in your range
-  type: NodePort  # Use NodePort for direct access
