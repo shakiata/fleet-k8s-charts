@@ -26,11 +26,8 @@ spec:
     driver: smb.csi.k8s.io
     volumeHandle: radarr-samba-share
     volumeAttributes:
-      cifsUrl: 
-        secretRef:
-          name: samba-secret
-          key: source
-      options: 
-        secretRef:
-          name: samba-secret
-          key: mountOptions
+      cifsUrl: "//192.168.0.3/plex_smb_share"
+      options: "uid=1000,gid=1000,forceuid,forcegid,file_mode=0755"
+    nodeStageSecretRef:
+      name: samba-secret
+      namespace: media-stack
