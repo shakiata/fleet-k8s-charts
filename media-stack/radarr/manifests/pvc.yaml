@@ -18,7 +18,7 @@ metadata:
   name: radarr-samba-pv
 spec:
   capacity:
-    storage: 100Gi # Updated to reflect a larger capacity
+    storage: 1Gi # Updated to reflect a larger capacity
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
@@ -30,4 +30,18 @@ spec:
       options: "uid=1000,gid=1000,forceuid,forcegid,file_mode=0755"
     nodeStageSecretRef:
       name: samba-secret
-      namespace: media-stack
+      namespace: media-stack 
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: radarr-samba-pvc
+  namespace: media-stack
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+  volumeName: radarr-samba-pv
