@@ -1,0 +1,28 @@
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: hookie-deployment
+  namespace: fleet-local
+spec:
+  repo: "https://github.com/jtmb/fleet-k8s-charts.git"
+  branch: "main"
+  paths:
+    - "hookie"
+  helm:
+    releaseName: hookie
+    targetNamespace: hookie
+
+# ---
+# apiVersion: fleet.cattle.io/v1alpha1
+# kind: GitRepo
+# metadata:
+#   name: app2
+#   namespace: fleet-default
+# spec:
+#   repo: "https://github.com/your-org/app2-repo.git"
+#   branch: "main"
+#   paths:
+#     - "helm"
+#   helm:
+#     releaseName: app2
+#     targetNamespace: app2-namespace
