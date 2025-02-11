@@ -1,13 +1,13 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: gluetun-service
-  namespace: torrent-stack
-spec:
-  selector:
-    app: gluetun
-  ports:
-    - protocol: TCP
-      port: 8112
-      targetPort: 8112
-  type: ClusterIP
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: gluetun-service
+#   namespace: torrent-stack
+# spec:
+#   selector:
+#     app: gluetun
+#   ports:
+#     - protocol: TCP
+#       port: 8112
+#       targetPort: 8112
+#   type: ClusterIP

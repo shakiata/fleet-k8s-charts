@@ -41,9 +41,9 @@ spec:
                 secretKeyRef:
                   name: protonvpn-credentials
                   key: openvpn_password
-          ports:
-            - containerPort: 8112
-              protocol: TCP
+          # ports:
+          #   - containerPort: 8112
+          #     protocol: TCP
           volumeMounts:
             - name: config
               mountPath: /tmp/gluetun
