@@ -27,14 +27,36 @@ spec:
 
 ---
 apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: plex-samba-pv
+spec:
+  capacity:
+    storage: 1Gi # Updated to reflect a larger capacity
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  csi:
+    driver: smb.csi.k8s.io
+    volumeHandle: plex-samba-share
+    volumeAttributes:
+      source: "//192.168.0.3/plex_smb_share"  # Explicitly define the source field
+      options: "uid=0,gid=0,forceuid,forcegid,file_mode=0755"
+    nodeStageSecretRef:
+      name: samba-secret
+      namespace: media-stack 
+
+---
+apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: plex-data-pvc
+  name: plex-samba-pvc
   namespace: media-stack
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 1Gi
-  storageClassName: longhorn  # Explicitly set Longhorn as the storage class
+  volumeName: plex-samba-pv
+  storageClassName: ""  # Ensures it binds to the manually created PV

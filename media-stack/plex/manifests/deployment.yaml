@@ -23,9 +23,9 @@ spec:
                   name: plex-claim-secret
                   key: PLEX_CLAIM
             - name: PUID
-              value: "1000"
+              value: "0"
             - name: PGID
-              value: "1000"
+              value: "0"
             - name: TZ
               value: "America/New_York" # Replace with your timezone
           ports:
@@ -33,21 +33,16 @@ spec:
               protocol: TCP
           volumeMounts:
             - name: config
-              mountPath: /config
-            - name: transcode
-              mountPath: /transcode
-            - name: data
-              mountPath: /data
+              mountPath: /config+
+            - name: downloads
+              mountPath: /media_drive
       volumes:
         - name: config
           persistentVolumeClaim:
             claimName: plex-config-pvc
-        - name: transcode
+        - name: downloads
           persistentVolumeClaim:
-            claimName: plex-transcode-pvc
-        - name: data
-          persistentVolumeClaim:
-            claimName: plex-data-pvc
+            claimName: plex-samba-pvc
 
 # kubectl create secret generic plex-claim-secret --from-literal=PLEX_CLAIM=asdsadsadsa -n plex
 

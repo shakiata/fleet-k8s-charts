@@ -13,28 +13,36 @@ spec:
 
 ---
 apiVersion: v1
-kind: PersistentVolumeClaim
+kind: PersistentVolume
 metadata:
-  name: sonarr-downloads-pvc
-  namespace: media-stack
+  name: sonarr-samba-pv
 spec:
+  capacity:
+    storage: 1Gi # Updated to reflect a larger capacity
   accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
-  storageClassName: longhorn  # Explicitly set Longhorn as the storage class
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  csi:
+    driver: smb.csi.k8s.io
+    volumeHandle: sonarr-samba-share
+    volumeAttributes:
+      source: "//192.168.0.3/plex_smb_share"  # Explicitly define the source field
+      options: "uid=0,gid=0,forceuid,forcegid,file_mode=0755"
+    nodeStageSecretRef:
+      name: samba-secret
+      namespace: media-stack 
 
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: sonarr-tv-pvc
+  name: sonarr-samba-pvc
   namespace: media-stack
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 1Gi
-  storageClassName: longhorn  # Explicitly set Longhorn as the storage class
+  volumeName: sonarr-samba-pv
+  storageClassName: ""  # Ensures it binds to the manually created PV

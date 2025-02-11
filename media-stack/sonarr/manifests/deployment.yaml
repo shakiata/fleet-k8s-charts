@@ -18,9 +18,9 @@ spec:
           image: linuxserver/sonarr:latest
           env:
             - name: PUID
-              value: "1000"
+              value: "0"
             - name: PGID
-              value: "1000"
+              value: "0"
             - name: TZ
               value: "America/New_York" # Replace with your timezone
           ports:
@@ -30,16 +30,11 @@ spec:
             - name: config
               mountPath: /config
             - name: downloads
-              mountPath: /downloads
-            - name: tv
-              mountPath: /tv
+              mountPath: /media_drive
       volumes:
         - name: config
           persistentVolumeClaim:
             claimName: sonarr-config-pvc
         - name: downloads
           persistentVolumeClaim:
-            claimName: sonarr-downloads-pvc
-        - name: tv
-          persistentVolumeClaim:
-            claimName: sonarr-tv-pvc
+            claimName: sonarr-samba-pvc
