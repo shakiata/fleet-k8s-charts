@@ -1,3 +1,17 @@
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: qbittorrent-service
+#   namespace: torrent-stack
+# spec:
+#   selector:
+#     app: qbittorrent-vpn  # This must match the label in the Deployment
+#   ports:
+#     - protocol: TCP
+#       port: 8112
+#       targetPort: 8112
+#   type: ClusterIP
+
 apiVersion: v1
 kind: Service
 metadata:
@@ -5,9 +19,10 @@ metadata:
   namespace: torrent-stack
 spec:
   selector:
-    app: qbittorrent-vpn  # This must match the label in the Deployment
+    app: qbittorrent-vpn
   ports:
     - protocol: TCP
       port: 8112
       targetPort: 8112
-  type: ClusterIP
+      nodePort: 30000  # Change this to a port number available in your range
+  type: NodePort  # Use NodePort for direct access
