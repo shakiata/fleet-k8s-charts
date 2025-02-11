@@ -5,7 +5,7 @@ metadata:
   namespace: torrent-stack
 spec:
   selector:
-    app: radarr
+    app: qbittorrent
   ports:
     - protocol: TCP
       port: 8112
