@@ -9,7 +9,6 @@ spec:
       management.cattle.io/cluster-name: fleet-local
   resources:
     - path: ./ns-gen.yaml
-    - path: ./values.yaml
     - path: ./plex/*
     - path: ./radarr/*
     - path: ./sonarr/*
