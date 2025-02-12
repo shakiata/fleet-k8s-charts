@@ -71,7 +71,7 @@ spec:
             - name: VPN_PORT_FORWARDING_PROVIDER
               value: protonvpn
             - name: VPN_NO_DEFAULT_ROUTE
-              value: "true"  # Prevents VPN from routing all traffic
+              value: "false"  # Prevents VPN from routing all traffic
             - name: VPN_ROUTES
               value: "6881/udp"  # Route only torrent traffic (port 6881 for UDP)
             - name: VPN_GATEWAY
