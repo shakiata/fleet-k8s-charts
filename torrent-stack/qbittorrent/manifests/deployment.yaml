@@ -14,6 +14,8 @@ spec:
         app: qbittorrent-vpn
     spec:
       containers:
+
+
         - name: qbittorrent
           image: lscr.io/linuxserver/qbittorrent:latest
           env:
@@ -37,6 +39,8 @@ spec:
               mountPath: /config
             - name: downloads
               mountPath: /media_drive
+
+
         - name: gluetun
           image: qmcgaw/gluetun
           securityContext:
@@ -64,6 +68,12 @@ spec:
               value: "on"
             - name: VPN_PORT_FORWARDING_PROVIDER
               value: protonvpn
+            - name: VPN_NO_DEFAULT_ROUTE
+              value: "true"  # Prevents VPN from routing all traffic through the VPN
+            - name: VPN_ROUTES
+              value: "6881/udp"  # Route only torrent traffic (port 6881 for UDP)
+            - name: VPN_GATEWAY
+              value: "yes"  # Ensure the VPN gateway is used for the selected traffic
           ports:
             - containerPort: 6881
           volumeMounts:
@@ -71,6 +81,9 @@ spec:
               mountPath: /config
             - name: downloads
               mountPath: /media_drive
+
+
+
       volumes:
         - name: config
           persistentVolumeClaim:
