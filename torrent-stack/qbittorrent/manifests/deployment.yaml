@@ -39,6 +39,7 @@ spec:
             - name: downloads
               mountPath: /media_drive
           # Use hostNetwork to avoid VPN routing for WebUI traffic
+          # hostNetwork: true  # Bypass VPN by using host's network for the WebUI container
           
         - name: gluetun
           image: qmcgaw/gluetun
