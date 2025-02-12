@@ -86,7 +86,10 @@ spec:
                       iptables -t mangle -A PREROUTING -p tcp --dport 8112 -j ACCEPT
                       # iptables rule to route torrent traffic (6881/udp) through VPN
                       iptables -t mangle -A PREROUTING -p udp --dport 6881 -j MARK --set-mark 1
-                      
+          volumeMounts:
+            - name: /mnt/gluetun
+              mountPath: /mnt/gluetun
+
       volumes:
         - name: config
           persistentVolumeClaim:
@@ -94,3 +97,6 @@ spec:
         - name: downloads
           persistentVolumeClaim:
             claimName: qbittorrent-samba-pvc
+        - name: /mnt/gluetun
+          persistentVolumeClaim:
+            claimName: gluetun-samba-pvc

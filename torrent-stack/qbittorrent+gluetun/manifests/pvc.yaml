@@ -49,20 +49,6 @@ spec:
 
 ---
 apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: gluetun-config-pvc
-  namespace: torrent-stack
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
-  storageClassName: longhorn  # Explicitly set Longhorn as the storage class
-
----
-apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: gluetun-samba-pv

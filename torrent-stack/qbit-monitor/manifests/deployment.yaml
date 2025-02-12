@@ -1,0 +1,71 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qbit-monitor
+  namespace: qbit-monitor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: qbit-monitor
+  template:
+    metadata:
+      labels:
+        app: qbit-monitor
+    spec:
+      containers:
+        - name: qbit-monitor
+          image: jtmb92/qbit-monitor:latest # Replace with your actual image
+          env:
+            - name: QBITTORRENT_STATUS_NOTIFICATION
+              value: "on"
+            - name: QBITTORRENT_HOST
+              value: "http://qbittorrent-webui:8112"
+            - name: QBITTORRENT_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: qbitmonitor-creds-secret
+                  key: user
+            - name: QBITTORRENT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: qbitmonitor-creds-secret
+                  key: password
+            - name: PORT_FORWARDING
+              value: "on"
+            - name: CHECK_INTERVAL_FORWARDED_PORT
+              value: "1h"
+            - name: PORT_FORWARD_FILE
+              value: "/mnt/gluetun/forwarded_port"
+            - name: PORT_UPDATED_NOTIFICATION
+              value: "on"
+            - name: CHECK_INTERVAL_TORRENT_MONITORING
+              value: "10s"
+            - name: NEW_DOWNLOAD_NOTIFICATION
+              value: "on"
+            - name: METADATA_STUCK_NOTIFICATION
+              value: "on"
+            - name: DOWNLOAD_COMPLETE_NOTIFICATION
+              value: "off"
+            - name: DISCORD_WEBHOOK_URL
+              valueFrom:
+                secretKeyRef:
+                  name: qbitmonitor-creds-secret
+                  key: discord-webhook-url
+              value: "{{ .Values.secrets.discordWebhookMedia }}"
+            - name: PUID
+              value: "1000"
+            - name: PGID
+              value: "1000"
+            - name: TZ
+              value: "Etc/UTC"
+          volumeMounts:
+            - name: /mnt/gluetun
+              mountPath: /mnt/gluetun
+          command: ["/bin/sh", "-c", "/app/entrypoint.sh --random"]
+
+
+      volumes:
+        - name: /mnt/gluetun
+          persistentVolumeClaim:
+            claimName: qbit-monitor-samba-pvc
