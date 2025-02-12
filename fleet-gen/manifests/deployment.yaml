@@ -9,11 +9,6 @@ spec:
   branch: "master"
   paths:
     - "hookie"
-  # helm:
-  #   releaseName: hookie-deployment
-  #   targetNamespace: hookie
-  #   valuesFiles:
-  #     - "hookie/values.yaml" 
 
 ---
 apiVersion: fleet.cattle.io/v1alpha1
@@ -26,9 +21,7 @@ spec:
   branch: "master"
   paths:
     - "media-stack"
-  # helm:
-  #   valuesFiles:
-  #     - "media-stack/values.yaml"
+
 
 ---
 apiVersion: fleet.cattle.io/v1alpha1
@@ -41,6 +34,3 @@ spec:
   branch: "master"
   paths:
     - "torrent-stack"
-  # helm:
-  #   valuesFiles:
-  #     - "torrent-stack/values.yaml"
