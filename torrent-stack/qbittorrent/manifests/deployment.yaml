@@ -29,6 +29,7 @@ spec:
             - containerPort: 8112
               name: webui
               protocol: TCP
+              hostPort: 8112  # Expose the WebUI on host's port 8112
             - containerPort: 6881
               name: bittorrent
               protocol: UDP
