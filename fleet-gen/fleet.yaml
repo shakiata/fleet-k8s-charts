@@ -1,13 +1,14 @@
 apiVersion: fleet.cattle.io/v1alpha1
 kind: Bundle
 metadata:
-  name: fleet-gen-bundle
+  name: fleet-k8s-charts-bundle
   namespace: fleet-local
 spec:
   clusterSelector:
     matchLabels:
       management.cattle.io/cluster-name: fleet-local
   resources:
-    - path: ./hookie/fleet.yaml
-    - path: ./media-stack/fleet.yaml
-    - path: ./torrent-stack/fleet.yaml
+    - path: ../hookie/fleet.yaml
+    - path: ../media-stack/fleet.yaml
+    - path: ../torrent-stack/fleet.yaml
+    - path: ../fleet-gen/manifests/deployment.yaml  # Add this path to include deployment.yaml

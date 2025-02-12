@@ -1,11 +1,11 @@
-# apiVersion: fleet.cattle.io/v1alpha1
-# kind: Bundle
-# metadata:
-#   name: media-stack-bundle
-#   namespace: fleet-local
-# spec:
-#   clusterSelector:
-#     matchLabels:
-#       management.cattle.io/cluster-name: fleet-local
-#   resources:
-#     - path: ./manifests/*       # Then deploys everything else
+apiVersion: fleet.cattle.io/v1alpha1
+kind: Bundle
+metadata:
+  name: media-stack-bundle
+  namespace: fleet-local
+spec:
+  clusterSelector:
+    matchLabels:
+      management.cattle.io/cluster-name: fleet-local
+  resources:
+    - path: ./manifests/*       # Then deploys everything else
