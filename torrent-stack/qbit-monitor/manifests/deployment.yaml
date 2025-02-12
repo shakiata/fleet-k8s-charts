@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: qbit-monitor
-  namespace: qbit-monitor
+  namespace: torrent-stack
 spec:
   replicas: 1
   selector:
