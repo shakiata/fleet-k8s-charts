@@ -41,46 +41,58 @@ spec:
               mountPath: /media_drive
 
 
-        - name: gluetun
-          image: qmcgaw/gluetun
-          securityContext:
-            capabilities:
-              add:
-                - NET_ADMIN
-          env:
-            - name: VPN_SERVICE_PROVIDER
-              value: protonvpn
-            - name: OPENVPN_USER
-              valueFrom:
-                secretKeyRef:
-                  name: protonvpn-credentials
-                  key: openvpn_user
-            - name: OPENVPN_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: protonvpn-credentials
-                  key: openvpn_password
-            - name: VPN_TYPE
-              value: openvpn
-            - name: PORT_FORWARD_ONLY
-              value: "on"
-            - name: VPN_PORT_FORWARDING
-              value: "on"
-            - name: VPN_PORT_FORWARDING_PROVIDER
-              value: protonvpn
-            - name: VPN_NO_DEFAULT_ROUTE
-              value: "true"  # Prevents VPN from routing all traffic through the VPN
-            - name: VPN_ROUTES
-              value: "6881/udp"  # Route only torrent traffic (port 6881 for UDP)
-            - name: VPN_GATEWAY
-              value: "yes"  # Ensure the VPN gateway is used for the selected traffic
-          ports:
-            - containerPort: 6881
-          volumeMounts:
-            - name: config
-              mountPath: /config
-            - name: downloads
-              mountPath: /media_drive
+      - name: gluetun
+        image: qmcgaw/gluetun
+        securityContext:
+          capabilities:
+            add:
+              - NET_ADMIN
+        env:
+          - name: VPN_SERVICE_PROVIDER
+            value: protonvpn
+          - name: OPENVPN_USER
+            valueFrom:
+              secretKeyRef:
+                name: protonvpn-credentials
+                key: openvpn_user
+          - name: OPENVPN_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: protonvpn-credentials
+                key: openvpn_password
+          - name: VPN_TYPE
+            value: openvpn
+          - name: PORT_FORWARD_ONLY
+            value: "on"
+          - name: VPN_PORT_FORWARDING
+            value: "on"
+          - name: VPN_PORT_FORWARDING_PROVIDER
+            value: protonvpn
+          - name: VPN_NO_DEFAULT_ROUTE
+            value: "true"  # Prevents VPN from routing all traffic
+          - name: VPN_ROUTES
+            value: "6881/udp"  # Route only torrent traffic (port 6881 for UDP)
+          - name: VPN_GATEWAY
+            value: "yes"  # Ensure the VPN gateway is used for the selected traffic
+        ports:
+          - containerPort: 6881
+        volumeMounts:
+          - name: config
+            mountPath: /config
+          - name: downloads
+            mountPath: /media_drive
+        lifecycle:
+          postStart:
+            exec:
+              command:
+                - "/bin/sh"
+                - "-c"
+                - |
+                    # iptables rule to ensure WebUI (port 8112) doesn't go through VPN
+                    iptables -t mangle -A PREROUTING -p tcp --dport 8112 -j ACCEPT
+                    # iptables rule to route torrent traffic (6881/udp) through VPN
+                    iptables -t mangle -A PREROUTING -p udp --dport 6881 -j MARK --set-mark 1
+
 
 
 
