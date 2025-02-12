@@ -12,6 +12,8 @@ spec:
   helm:
     releaseName: hookie-deployment
     targetNamespace: hookie
+    valuesFiles:
+      - values.yaml
   correctDrift: {}
 
 ---
@@ -28,6 +30,8 @@ spec:
   helm:
     releaseName: media-stack
     targetNamespace: media-stack
+    valuesFiles:
+      - values.yaml
   correctDrift: {}
 
 ---
@@ -44,4 +48,6 @@ spec:
   helm:
     releaseName: torrent-stack
     targetNamespace: torrent-stack
+    valuesFiles:
+      - values.yaml
   correctDrift: {}
