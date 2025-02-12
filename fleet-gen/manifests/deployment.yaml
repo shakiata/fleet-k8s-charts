@@ -10,8 +10,8 @@ spec:
   paths:
     - "hookie"
   helm:
-    releaseName: hookie-deployment
-    targetNamespace: hookie
+    valuesFiles:
+      - values.yaml
 
 ---
 apiVersion: fleet.cattle.io/v1alpha1
@@ -25,10 +25,8 @@ spec:
   paths:
     - "media-stack"
   helm:
-    releaseName: media-stack
-    targetNamespace: media-stack
-
-
+    valuesFiles:
+      - values.yaml
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
@@ -41,5 +39,5 @@ spec:
   paths:
     - "torrent-stack"
   helm:
-    releaseName: torrent-stack
-    targetNamespace: torrent-stack
+    valuesFiles:
+      - values.yaml
