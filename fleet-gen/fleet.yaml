@@ -1,12 +1,13 @@
 apiVersion: fleet.cattle.io/v1alpha1
 kind: Bundle
 metadata:
-  name: hookie-bundle
+  name: fleet-gen-bundle
   namespace: fleet-local
 spec:
   clusterSelector:
     matchLabels:
       management.cattle.io/cluster-name: fleet-local
   resources:
-    - path: ./manifests/*
-    - path: ./values.yaml  # Ensure it's explicitly added
+    - path: ./hookie/fleet.yaml
+    - path: ./media-stack/fleet.yaml
+    - path: ./torrent-stack/fleet.yaml
