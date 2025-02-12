@@ -8,4 +8,12 @@ spec:
     matchLabels:
       management.cattle.io/cluster-name: fleet-local
   resources:
-    - path: ./manifests/*       # Then deploys everything else
+    - path: ./manifests/*
+  diff:
+    comparePatches:
+      - apiVersion: fleet.cattle.io/v1alpha1
+        kind: GitRepo
+        name: "*"
+        operations:
+          - {"op": "remove", "path": "/spec/helm/releaseName"}
+          - {"op": "remove", "path": "/spec/helm/targetNamespace"}
