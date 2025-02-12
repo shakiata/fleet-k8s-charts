@@ -3,8 +3,6 @@ kind: Deployment
 metadata:
   name: qbittorrent-vpn
   namespace: torrent-stack
-  annotations:
-    reloader.stakater.com/auto: "true"  # This will automatically trigger reloads if config changes
 spec:
   replicas: 1
   selector:
@@ -72,12 +70,6 @@ spec:
             #   value: "8112,6881"
             - name: FIREWALL_INPUT_PORTS
               value: "80,443,8112"
-            # - name: VPN_NO_DEFAULT_ROUTE
-            #   value: "false"  # Prevents VPN from routing all traffic
-            # - name: VPN_ROUTES
-            #   value: "6881/udp"  # Route only torrent traffic (port 6881 for UDP)
-            # - name: VPN_GATEWAY
-            #   value: "yes"  # Ensure the VPN gateway is used for the selected traffic
           volumeMounts:
             - name: config
               mountPath: /config
