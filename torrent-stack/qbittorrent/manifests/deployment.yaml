@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: qbittorrent-vpn
   namespace: torrent-stack
+  annotations:
+    reloader.stakater.com/auto: "true"  # This will automatically trigger reloads if config changes
 spec:
   replicas: 1
   selector:
