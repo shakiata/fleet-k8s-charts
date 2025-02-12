@@ -70,12 +70,16 @@ spec:
               value: "on"
             - name: VPN_PORT_FORWARDING_PROVIDER
               value: protonvpn
-            - name: VPN_NO_DEFAULT_ROUTE
-              value: "false"  # Prevents VPN from routing all traffic
-            - name: VPN_ROUTES
-              value: "6881/udp"  # Route only torrent traffic (port 6881 for UDP)
-            - name: VPN_GATEWAY
-              value: "yes"  # Ensure the VPN gateway is used for the selected traffic
+            # - name: FIREWALL_VPN_INPUT_PORTS
+            #   value: "8112,6881"
+            - name: FIREWALL_INPUT_PORTS
+              value: "80,443,8112"
+            # - name: VPN_NO_DEFAULT_ROUTE
+            #   value: "false"  # Prevents VPN from routing all traffic
+            # - name: VPN_ROUTES
+            #   value: "6881/udp"  # Route only torrent traffic (port 6881 for UDP)
+            # - name: VPN_GATEWAY
+            #   value: "yes"  # Ensure the VPN gateway is used for the selected traffic
           ports:
             - containerPort: 6881
           volumeMounts:
