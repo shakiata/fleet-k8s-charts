@@ -25,7 +25,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: qbitmonitor-creds-secret
-                  key: user
+                  key: username
             - name: QBITTORRENT_PASSWORD
               valueFrom:
                 secretKeyRef:
