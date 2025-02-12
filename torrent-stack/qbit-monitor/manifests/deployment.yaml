@@ -60,12 +60,12 @@ spec:
             - name: TZ
               value: "Etc/UTC"
           volumeMounts:
-            - name: /mnt/gluetun
+            - name: gluetun-port
               mountPath: /mnt/gluetun
           command: ["/bin/sh", "-c", "/app/entrypoint.sh --random"]
 
 
       volumes:
-        - name: /mnt/gluetun
+        - name: gluetun-port
           persistentVolumeClaim:
             claimName: qbit-monitor-samba-pvc
