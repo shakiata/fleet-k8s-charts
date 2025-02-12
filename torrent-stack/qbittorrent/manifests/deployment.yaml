@@ -15,12 +15,6 @@ spec:
       labels:
         app: qbittorrent-vpn
     spec:
-
-controllers:
-  qbittorrent-vpn:
-    annotations:
-      reloader.stakater.com/auto: "true"
-      
       containers:
         - name: qbittorrent
           image: lscr.io/linuxserver/qbittorrent:latest
