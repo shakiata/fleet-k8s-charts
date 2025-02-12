@@ -17,7 +17,6 @@ spec:
     spec:
       containers:
         - name: qbittorrent
-          dependsOn: gluetun
           image: lscr.io/linuxserver/qbittorrent:latest
           env:
             - name: PUID
@@ -40,6 +39,7 @@ spec:
               mountPath: /config
             - name: downloads
               mountPath: /media_drive
+
           
         - name: gluetun
           image: qmcgaw/gluetun
