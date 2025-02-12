@@ -14,7 +14,6 @@ spec:
     targetNamespace: hookie
     valuesFiles:
       - values.yaml
-  correctDrift: {}
 
 ---
 apiVersion: fleet.cattle.io/v1alpha1
@@ -28,11 +27,8 @@ spec:
   paths:
     - "media-stack"
   helm:
-    releaseName: media-stack
-    targetNamespace: media-stack
     valuesFiles:
       - values.yaml
-  correctDrift: {}
 
 ---
 apiVersion: fleet.cattle.io/v1alpha1
@@ -46,8 +42,5 @@ spec:
   paths:
     - "torrent-stack"
   helm:
-    releaseName: torrent-stack
-    targetNamespace: torrent-stack
     valuesFiles:
       - values.yaml
-  correctDrift: {}
