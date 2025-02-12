@@ -60,7 +60,7 @@ spec:
               value: "Etc/UTC"
           volumeMounts:
             - name: gluetun-port
-              mountPath: /mnt/gluetun
+              mountPath: /tmp/gluetun/
           # command: ["/bin/sh", "-c", "/app/entrypoint.sh --random"]
 
 
