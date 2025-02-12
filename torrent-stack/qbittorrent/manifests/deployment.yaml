@@ -17,6 +17,7 @@ spec:
     spec:
       containers:
         - name: qbittorrent
+          dependsOn: gluetun
           image: lscr.io/linuxserver/qbittorrent:latest
           env:
             - name: PUID
@@ -31,7 +32,6 @@ spec:
             - containerPort: 8112
               name: webui
               protocol: TCP
-              hostPort: 8112  # Expose the WebUI on host's port 8112
             - containerPort: 6881
               name: bittorrent
               protocol: UDP
