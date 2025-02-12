@@ -1,46 +1,46 @@
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
-# metadata:
-#   name: hookie-deployment
-#   namespace: fleet-local
+metadata:
+  name: hookie-deployment
+  namespace: fleet-local
 spec:
   repo: "https://github.com/jtmb/fleet-k8s-charts.git"
   branch: "master"
   paths:
     - "hookie"
-  helm:
-    releaseName: hookie-deployment
-    targetNamespace: hookie
-    valuesFiles:
-      - "hookie/values.yaml" 
+  # helm:
+  #   releaseName: hookie-deployment
+  #   targetNamespace: hookie
+  #   valuesFiles:
+  #     - "hookie/values.yaml" 
 
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
-# metadata: 
-#   name: media-stack-deployment
-#   namespace: fleet-local
+metadata: 
+  name: media-stack-deployment
+  namespace: fleet-local
 spec:
   repo: "https://github.com/jtmb/fleet-k8s-charts.git"
   branch: "master"
   paths:
     - "media-stack"
-  helm:
-    valuesFiles:
-      - "media-stack/values.yaml"
+  # helm:
+  #   valuesFiles:
+  #     - "media-stack/values.yaml"
 
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
-# metadata:
-#   name: torrent-stack-deployment
-#   namespace: fleet-local
+metadata:
+  name: torrent-stack-deployment
+  namespace: fleet-local
 spec:
   repo: "https://github.com/jtmb/fleet-k8s-charts.git"
   branch: "master"
   paths:
     - "torrent-stack"
-  helm:
-    valuesFiles:
-      - "torrent-stack/values.yaml"
+  # helm:
+  #   valuesFiles:
+  #     - "torrent-stack/values.yaml"
