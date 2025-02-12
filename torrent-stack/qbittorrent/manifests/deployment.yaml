@@ -14,7 +14,6 @@ spec:
         app: qbittorrent-vpn
     spec:
       containers:
-
         - name: qbittorrent
           image: lscr.io/linuxserver/qbittorrent:latest
           env:
@@ -23,7 +22,7 @@ spec:
             - name: PGID
               value: "0"
             - name: TZ
-              value: "America/New_York" # Replace with your timezone
+              value: "America/New_York"
             - name: WEBUI_PORT
               value: "8112"
           ports:
@@ -38,7 +37,6 @@ spec:
               mountPath: /config
             - name: downloads
               mountPath: /media_drive
-
         - name: gluetun
           image: qmcgaw/gluetun
           securityContext:
@@ -68,9 +66,11 @@ spec:
               value: protonvpn
           ports:
             - containerPort: 6881
-
-
-
+          volumeMounts:
+            - name: config
+              mountPath: /config
+            - name: downloads
+              mountPath: /media_drive
       volumes:
         - name: config
           persistentVolumeClaim:
