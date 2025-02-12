@@ -14,6 +14,7 @@ spec:
         app: qbittorrent-vpn
     spec:
       containers:
+
         - name: qbittorrent
           image: lscr.io/linuxserver/qbittorrent:latest
           env:
@@ -67,6 +68,9 @@ spec:
               value: protonvpn
           ports:
             - containerPort: 6881
+
+
+
       volumes:
         - name: config
           persistentVolumeClaim:

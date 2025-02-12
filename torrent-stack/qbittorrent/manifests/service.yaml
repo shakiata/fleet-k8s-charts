@@ -18,7 +18,7 @@ metadata:
   name: qbittorrent-service
   namespace: torrent-stack
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: qbittorrent-vpn
   ports:
