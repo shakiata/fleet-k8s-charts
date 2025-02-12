@@ -13,7 +13,7 @@ spec:
       labels:
         app: qbittorrent-vpn
     spec:
-      hostNetwork: true
+      # hostNetwork: true
       containers:
         - name: qbittorrent
           image: lscr.io/linuxserver/qbittorrent:latest
