@@ -12,7 +12,7 @@ spec:
   helm:
     releaseName: hookie-deployment
     targetNamespace: hookie
-  correctDrift: false
+  correctDrift: {}
 
 ---
 apiVersion: fleet.cattle.io/v1alpha1
@@ -28,7 +28,7 @@ spec:
   helm:
     releaseName: media-stack
     targetNamespace: media-stack
-  correctDrift: false
+  correctDrift: {}
 
 ---
 apiVersion: fleet.cattle.io/v1alpha1
@@ -44,4 +44,4 @@ spec:
   helm:
     releaseName: torrent-stack
     targetNamespace: torrent-stack
-  correctDrift: false
+  correctDrift: {}
