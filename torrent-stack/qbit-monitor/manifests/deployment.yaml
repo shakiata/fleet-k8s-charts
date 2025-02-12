@@ -52,7 +52,6 @@ spec:
                 secretKeyRef:
                   name: qbitmonitor-creds-secret
                   key: discord-webhook-url
-              value: "{{ .Values.secrets.discordWebhookMedia }}"
             - name: PUID
               value: "1000"
             - name: PGID
