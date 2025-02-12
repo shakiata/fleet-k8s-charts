@@ -13,7 +13,7 @@ spec:
     releaseName: hookie-deployment
     targetNamespace: hookie
     valuesFiles:
-      - values.yaml
+      - ./values.yaml
 
 ---
 apiVersion: fleet.cattle.io/v1alpha1
@@ -28,7 +28,7 @@ spec:
     - "media-stack"
   helm:
     valuesFiles:
-      - values.yaml
+      - ./values.yaml
 
 ---
 apiVersion: fleet.cattle.io/v1alpha1
@@ -43,4 +43,4 @@ spec:
     - "torrent-stack"
   helm:
     valuesFiles:
-      - values.yaml
+      - ./values.yaml
