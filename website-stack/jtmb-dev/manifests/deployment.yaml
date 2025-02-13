@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jtmb-dev
+  namespace: website-stack
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: jtmb-dev
+  template:
+    metadata:
+      labels:
+        app: jtmb-dev
+    spec:
+      containers:
+        - name: jtmb-dev
+          image: jtmb92/jtmb-dev:latest # Replace with your actual image
+          ports:
+            - containerPort: 80
