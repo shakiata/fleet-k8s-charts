@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: qbit-monitor-service
-  namespace: torrent-stack
+  namespace: media-stack
 spec:
   selector:
     app: qbit-monitor

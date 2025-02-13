@@ -17,14 +17,14 @@ spec:
       options: "uid=0,gid=0,forceuid,forcegid,file_mode=0755"
     nodeStageSecretRef:
       name: samba-secret
-      namespace: torrent-stack 
+      namespace: media-stack 
 
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: qbit-monitor-samba-pvc
-  namespace: torrent-stack
+  namespace: media-stack
 spec:
   accessModes:
     - ReadWriteMany

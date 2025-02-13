@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: qbittorrent-vpn
-  namespace: torrent-stack
+  namespace: media-stack
 spec:
   replicas: 1
   selector:
