@@ -66,8 +66,8 @@ spec:
               value: "on"
             - name: VPN_PORT_FORWARDING_PROVIDER
               value: protonvpn
-            # - name: FIREWALL_VPN_INPUT_PORTS
-            #   value: "8112,6881"
+            - name: FIREWALL_VPN_INPUT_PORTS
+              value: "6881"
             - name: FIREWALL_INPUT_PORTS
               value: "80,443,8112"
           volumeMounts:
