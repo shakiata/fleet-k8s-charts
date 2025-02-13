@@ -42,7 +42,7 @@ spec:
               protocol: TCP
           volumeMounts:
             - name: config
-              mountPath: /config+
+              mountPath: /config
             - name: downloads
               mountPath: /media_drive
       volumes:
