@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aplb
+  namespace: aplb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aplb
+  template:
+    metadata:
+      labels:
+        app: aplb
+    spec:
+      containers:
+        - name: aplb
+          image: jtmb92/aplb:latest # Replace with your actual image
+          ports:
+            - containerPort: 80

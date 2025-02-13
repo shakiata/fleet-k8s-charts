@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: santos-web-service
+  namespace: website-stack
+spec:
+  selector:
+    app: santos-web
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP

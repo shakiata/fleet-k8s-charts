@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lucinda-art-gallery
+  namespace: lucinda-art-gallery
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lucinda-art-gallery
+  template:
+    metadata:
+      labels:
+        app: lucinda-art-gallery
+    spec:
+      containers:
+        - name: lucinda-art-gallery
+          image: jtmb92/lucinda-art-gallery:latest # Replace with your actual image
+          ports:
+            - containerPort: 80

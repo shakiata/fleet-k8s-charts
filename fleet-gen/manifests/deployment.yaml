@@ -34,3 +34,16 @@ spec:
   branch: "master"
   paths:
     - "torrent-stack"
+
+---
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: website-stack-deployment
+  namespace: fleet-local
+spec:
+  repo: "https://github.com/jtmb/fleet-k8s-charts.git"
+  branch: "master"
+  paths:
+    - "website-stack"
+
