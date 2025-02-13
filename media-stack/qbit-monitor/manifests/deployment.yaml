@@ -61,7 +61,6 @@ spec:
           volumeMounts:
             - name: gluetun-port
               mountPath: /tmp/gluetun/
-          # command: ["/bin/sh", "-c", "/app/entrypoint.sh --random"]
 
 
       volumes:
