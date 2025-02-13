@@ -36,7 +36,7 @@ spec:
                   fieldPath: status.hostIP
           command: ["/bin/sh", "-c"]
           args:
-            - "export ADVERTISE_IP=http://$NODE_IP:32400/ && exec /init"
+            - 'export ADVERTISE_IP="http://$NODE_IP:32400/" && echo "Using ADVERTISE_IP=$ADVERTISE_IP" && exec /init'
           ports:
             - containerPort: 32400
               protocol: TCP
