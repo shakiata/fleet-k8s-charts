@@ -11,3 +11,21 @@ spec:
       port: 32400
       targetPort: 32400
   type: ClusterIP
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: plex-nodeport-32400-service
+  namespace: media-stack
+spec:
+  type: NodePort
+  selector:
+    app: plex
+  ports:
+    - name: http
+      port: 32400
+      targetPort: 32400
+      nodePort: 32400 # Ensure this port is open on your nodes
+      protocol: TCP
