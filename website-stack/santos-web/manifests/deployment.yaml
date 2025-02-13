@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: santos-web
-  namespace: santos-web
+  namespace: website-stack
 spec:
   replicas: 1
   selector:

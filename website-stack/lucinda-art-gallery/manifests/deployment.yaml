@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: lucinda-art-gallery
-  namespace: lucinda-art-gallery
+  namespace: website-stack
 spec:
   replicas: 1
   selector:
