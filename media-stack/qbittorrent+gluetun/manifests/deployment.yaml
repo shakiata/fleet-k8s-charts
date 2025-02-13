@@ -75,17 +75,6 @@ spec:
               mountPath: /config
             - name: downloads
               mountPath: /media_drive
-          # lifecycle:
-          #   postStart:
-          #     exec:
-          #       command:
-          #         - "/bin/sh"
-          #         - "-c"
-          #         - |
-          #             # iptables rule to ensure WebUI (port 8112) doesn't go through VPN
-          #             iptables -t mangle -A PREROUTING -p tcp --dport 8112 -j ACCEPT
-          #             # iptables rule to route torrent traffic (6881/udp) through VPN
-          #             iptables -t mangle -A PREROUTING -p udp --dport 6881 -j MARK --set-mark 1
           volumeMounts:
             - name: gluetun-port
               mountPath: /tmp/gluetun
