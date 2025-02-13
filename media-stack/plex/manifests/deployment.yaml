@@ -17,11 +17,11 @@ spec:
         - name: plex
           image: plexinc/pms-docker:latest
           env:
-            # - name: PLEX_CLAIM
-            #   valueFrom:
-            #     secretKeyRef:
-            #       name: plex-claim-secret
-            #       key: PLEX_CLAIM
+            - name: PLEX_CLAIM
+              valueFrom:
+                secretKeyRef:
+                  name: plex-claim-secret
+                  key: PLEX_CLAIM
             - name: PUID
               value: "0"
             - name: PGID
