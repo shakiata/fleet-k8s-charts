@@ -28,8 +28,15 @@ spec:
               value: "0"
             - name: TZ
               value: "America/New_York" # Replace with your timezone
-            - name: ADVERTISE_IP
-              value: http://$(NODE_IP):32400/
+            # - name: ADVERTISE_IP
+            #   value: http://$(NODE_IP):32400/\
+            - name: NODE_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.hostIP
+          command: ["/bin/sh", "-c"]
+          args:
+            - "export ADVERTISE_IP=http://$NODE_IP:32400/ && exec /init"
           ports:
             - containerPort: 32400
               protocol: TCP
