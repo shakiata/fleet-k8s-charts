@@ -5,7 +5,7 @@ metadata:
   namespace: wordpress-stack
 spec:
   selector:
-    app: wordpress
+    app: blog-jtmb
   ports:
     - protocol: TCP
       port: 80
