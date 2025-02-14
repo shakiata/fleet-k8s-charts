@@ -44,6 +44,7 @@ spec:
   repo: "https://github.com/jtmb/fleet-k8s-charts.git"
   branch: "master"
   paths:
+    - "wordpress-stack" 
     - "wordpress-stack/*/*"
-    - "wordpress-stack"
+
 
