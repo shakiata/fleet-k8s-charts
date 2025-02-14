@@ -37,6 +37,7 @@ spec:
           volumeMounts:
             - name: config
               mountPath: /var/lib/mysql
+              subPath: mysql
           readinessProbe:
             exec:
               command:
