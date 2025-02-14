@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: blog-jtmb-mysql:5.7
+  name: blog-jtmb-mysql
   namespace: media-stack
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: blog-jtmb-blog-jtmb-mysql:5.7
+      app: blog-jtmb-blog-jtmb-mysql
   template:
     metadata:
       labels:
-        app: blog-jtmb-mysql:5.7
+        app: blog-jtmb-mysql
     spec:
       containers:
-        - name: blog-jtmb-mysql:5.7
+        - name: blog-jtmb-mysql
           image: mysql:5.7
           env:
             - name: PUID
@@ -40,4 +40,4 @@ spec:
       volumes:
         - name: config
           persistentVolumeClaim:
-            claimName: blog-jtmb-mysql:5.7-config-pvc
+            claimName: blog-jtmb-mysql-config-pvc
