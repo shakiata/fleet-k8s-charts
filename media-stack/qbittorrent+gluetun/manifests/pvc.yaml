@@ -26,7 +26,7 @@ spec:
     driver: smb.csi.k8s.io
     volumeHandle: qbittorrent-samba-share
     volumeAttributes:
-      source: "//10.10.68.155/smb_share" # Explicitly define the source field
+      source: "//10.10.68.155/smb_drive" # Explicitly define the source field
       options: "uid=0,gid=0,forceuid,forcegid,file_mode=0755"
     nodeStageSecretRef:
       name: samba-secret
@@ -62,7 +62,7 @@ spec:
     driver: smb.csi.k8s.io
     volumeHandle: gluetun-samba-share
     volumeAttributes:
-      source: "//10.10.68.155/smb_share/shared-container-folder/gluetun" # Explicitly define the source field
+      source: "//10.10.68.155/smb_drive/shared-container-folder/gluetun" # Explicitly define the source field
       options: "uid=0,gid=0,forceuid,forcegid,file_mode=0755"
     nodeStageSecretRef:
       name: samba-secret
