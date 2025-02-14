@@ -2,18 +2,6 @@
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
 metadata:
-  name: hookie-deployment
-  namespace: fleet-local
-spec:
-  repo: "https://github.com/jtmb/fleet-k8s-charts.git"
-  branch: "master"
-  paths:
-    - "hookie"
-
----
-apiVersion: fleet.cattle.io/v1alpha1
-kind: GitRepo
-metadata: 
   name: media-stack-deployment
   namespace: fleet-local
 spec:
@@ -21,7 +9,7 @@ spec:
   branch: "master"
   paths:
     - "media-stack"
-    
+
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
@@ -33,4 +21,3 @@ spec:
   branch: "master"
   paths:
     - "website-stack"
-

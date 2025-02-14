@@ -28,8 +28,6 @@ spec:
               value: "0"
             - name: TZ
               value: "America/New_York" # Replace with your timezone
-            # - name: ADVERTISE_IP
-            #   value: http://$(NODE_IP):32400/\
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -52,7 +50,5 @@ spec:
         - name: downloads
           persistentVolumeClaim:
             claimName: plex-samba-pvc
-
 # kubectl create secret generic plex-claim-secret --from-literal=PLEX_CLAIM=asdsadsadsa -n plex
 
-           

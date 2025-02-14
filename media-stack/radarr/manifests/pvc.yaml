@@ -9,7 +9,7 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  storageClassName: longhorn  # Explicitly set Longhorn as the storage class
+  storageClassName: longhorn # Explicitly set Longhorn as the storage class
 
 ---
 apiVersion: v1
@@ -26,11 +26,11 @@ spec:
     driver: smb.csi.k8s.io
     volumeHandle: radarr-samba-share
     volumeAttributes:
-      source: "//192.168.0.3/plex_smb_share"  # Explicitly define the source field
+      source: "//10.10.68.155/smb_share" # Explicitly define the source field
       options: "uid=0,gid=0,forceuid,forcegid,file_mode=0755"
     nodeStageSecretRef:
       name: samba-secret
-      namespace: media-stack 
+      namespace: media-stack
 
 ---
 apiVersion: v1
@@ -45,4 +45,4 @@ spec:
     requests:
       storage: 1Gi
   volumeName: radarr-samba-pv
-  storageClassName: ""  # Ensures it binds to the manually created PV
+  storageClassName: "" # Ensures it binds to the manually created PV
