@@ -7,7 +7,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: blog-jtmb-blog-jtmb-mysql
+      app: blog-jtmb-mysql
   template:
     metadata:
       labels:
@@ -25,7 +25,7 @@ spec:
               value: "America/New_York" # Replace with your timezone
             - name: MYSQL_USER
               value: db_user
-            - name: MYSQL_PASSWORD/
+            - name: MYSQL_PASSWORD
               value: dbpass
             - name: MYSQL_DATABASE
               value : wp_db
