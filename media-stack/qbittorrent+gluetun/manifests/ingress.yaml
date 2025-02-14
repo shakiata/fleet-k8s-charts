@@ -7,7 +7,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: qbittorrent.rancher-dev.branconet.lan
+    - host: qbittorrent.rancher.diggingin.pw
       http:
         paths:
           - path: /
