@@ -27,7 +27,7 @@ spec:
               value: mysql:5.7-service
             - name: WORDPRESS_DB_USER
               value: db_user
-            - name: WORDPRESS_DB_PASSWORD/
+            - name: WORDPRESS_DB_PASSWORD
               value: dbpass
             - name: WORDPRESS_DB_NAME
               value : wp_db
