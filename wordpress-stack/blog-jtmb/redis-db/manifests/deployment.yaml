@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: blog-jtmb-redis
-  namespace: media-stack
+  namespace: wordpress-stack
 spec:
   replicas: 1
   selector:
