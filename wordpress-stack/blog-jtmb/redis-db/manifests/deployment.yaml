@@ -14,8 +14,8 @@ spec:
         app: blog-jtmb-redis
     spec:
       containers:
-        - name: redis
-          image: linuxserver/redis:alpine
+        - name: blog-jtmb-redis
+          image: redis:alpine
           env:
             - name: PUID
               value: "0"
