@@ -45,6 +45,6 @@ spec:
   branch: "master"
   paths:
     - "wordpress-stack" 
-    - "wordpress-stack/*/*"
+    - "wordpress-stack/blog-jtmb"
 
 
