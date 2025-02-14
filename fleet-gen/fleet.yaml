@@ -7,8 +7,3 @@ spec:
   clusterSelector:
     matchLabels:
       management.cattle.io/cluster-name: fleet-local
-  resources:
-    - path: ../hookie/*
-    - path: ../media-stack/*
-    - path: ../torrent-stack/*
-    - path: ../fleet-gen/manifests/deployment.yaml  # Add this path to include deployment.yaml
