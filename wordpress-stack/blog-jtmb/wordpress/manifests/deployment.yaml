@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blog-jtmb
+  namespace: wordpress-stack
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: blog-jtmb
+  template:
+    metadata:
+      labels:
+        app: blog-jtmb
+    spec:
+      containers:
+        - name: blog-jtmb
+          image: wordpress:latest
+          env:
+            - name: PUID
+              value: "0"
+            - name: PGID
+              value: "0"
+            - name: TZ
+              value: "America/New_York" # Replace with your timezone
+            - name: WORDPRESS_DB_HOST
+              value: mysql:5.7-service
+            - name: WORDPRESS_DB_USER
+              value: db_user
+            - name: WORDPRESS_DB_PASSWORD/
+              value: dbpass
+            - name: WORDPRESS_DB_NAME
+              value : wp_db
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          volumeMounts:
+            - name: config
+              mountPath: /var/www/html
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: blog-jtmb-config-pvc

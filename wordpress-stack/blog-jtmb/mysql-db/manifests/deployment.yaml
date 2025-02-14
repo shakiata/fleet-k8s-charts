@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blog-jtmb-mysql:5.7
+  namespace: media-stack
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blog-jtmb-blog-jtmb-mysql:5.7
+  template:
+    metadata:
+      labels:
+        app: blog-jtmb-mysql:5.7
+    spec:
+      containers:
+        - name: blog-jtmb-mysql:5.7
+          image: mysql:5.7
+          env:
+            - name: PUID
+              value: "0"
+            - name: PGID
+              value: "0"
+            - name: TZ
+              value: "America/New_York" # Replace with your timezone
+            - name: MYSQL_USER
+              value: db_user
+            - name: MYSQL_PASSWORD/
+              value: dbpass
+            - name: MYSQL_DATABASE
+              value : wp_db
+            - name: MYSQL_RANDOM_ROOT_PASSWORD
+              value: '1'
+          ports:
+            - containerPort: 3306
+              protocol: TCP
+          volumeMounts:
+            - name: config
+              mountPath: /var/lib/mysql
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: blog-jtmb-mysql:5.7-config-pvc
