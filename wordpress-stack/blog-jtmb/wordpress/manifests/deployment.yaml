@@ -31,7 +31,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: wordpress-db-secret
-                  key: password 
+                  key: password
             - name: WORDPRESS_DB_NAME
               value : wp_db
           ports:

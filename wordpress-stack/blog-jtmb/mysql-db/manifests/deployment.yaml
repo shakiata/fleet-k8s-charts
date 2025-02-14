@@ -29,7 +29,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: wordpress-db-secret
-                  key: passwords
+                  key: password
             - name: MYSQL_DATABASE
               value : wp_db
             - name: MYSQL_RANDOM_ROOT_PASSWORD
