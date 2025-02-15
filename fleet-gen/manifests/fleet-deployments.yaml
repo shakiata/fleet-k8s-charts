@@ -29,7 +29,7 @@ metadata:
   name: wordpress-stack-deployment
   namespace: fleet-local
 spec:
-  repo: "https://github.com/jtmb/fleet-k8s-charts.git"
+  repo: "https://github.com/shakiata/fleet-k8s-charts.git"
   branch: "master"
   paths:
     - "wordpress-stack/**"
