@@ -29,7 +29,7 @@ spec:
               service:
                 name: plex-service-external
                 port:
-                  number: 80
+                  number: 32400
   tls:
     - hosts:
         - plex.rancher.diggingin.pw # Replace with your domain
