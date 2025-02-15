@@ -10,7 +10,7 @@ metadata:
 
 spec:
   rules:
-    - host: plex.rancher.diggingin.pw # Replace with your domain
+    - host: plex.rke # Replace with your domain
       http:
         paths:
           - path: /
