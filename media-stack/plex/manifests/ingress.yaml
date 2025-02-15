@@ -32,7 +32,8 @@ spec:
                   number: 32400
   tls:
     - hosts:
-        - plex.rancher.diggingin.pw # Replace with your domain
+        - plex.diggingin.pw # Replace with your domain
+        - plex.rke
       secretName: plex-tls # This is the name of the TLS certificate secret
 
 ---
