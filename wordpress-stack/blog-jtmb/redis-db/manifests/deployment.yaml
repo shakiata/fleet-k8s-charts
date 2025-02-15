@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blog-jtmb-redis
+  namespace: wordpress-stack
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blog-jtmb-redis
+  template:
+    metadata:
+      labels:
+        app: blog-jtmb-redis
+    spec:
+      containers:
+        - name: blog-jtmb-redis
+          image: redis:alpine
+          env:
+            - name: PUID
+              value: "0"
+            - name: PGID
+              value: "0"
+            - name: TZ
+              value: "America/New_York" # Replace with your timezone
+          ports:
+            - containerPort: 6379
+              protocol: TCP

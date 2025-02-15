@@ -7,5 +7,3 @@ spec:
   clusterSelector:
     matchLabels:
       management.cattle.io/cluster-name: fleet-local
-  resources:
-    - path: ../fleet-gen/manifests/deployment.yaml # Add this path to include deployment.yaml

@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blog-jtmb-mysql
+  namespace: wordpress-stack
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blog-jtmb-mysql
+  template:
+    metadata:
+      labels:
+        app: blog-jtmb-mysql
+    spec:
+      containers:
+        - name: blog-jtmb-mysql
+          image: mysql:5.7
+          env:
+            - name: PUID
+              value: "0"
+            - name: PGID
+              value: "0"
+            - name: TZ
+              value: "America/New_York" # Replace with your timezone
+            - name: MYSQL_USER
+              value: db_user
+            - name: WORDPRESS_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: wordpress-db-secret
+                  key: password
+            - name: MYSQL_DATABASE
+              value : wp_db
+            - name: MYSQL_RANDOM_ROOT_PASSWORD
+              value: '1'
+          ports:
+            - containerPort: 3306
+              protocol: TCP
+          volumeMounts:
+            - name: config
+              mountPath: /var/lib/mysql
+              subPath: mysql
+          readinessProbe:
+            exec:
+              command:
+              - mysqladmin
+              - ping
+              - "-h"
+              - "localhost"
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          livenessProbe:
+            exec:
+              command:
+              - mysqladmin
+              - ping
+              - "-h"
+              - "localhost"
+            initialDelaySeconds: 20
+            periodSeconds: 10
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: blog-jtmb-mysql-config-pvc
