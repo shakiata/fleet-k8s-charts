@@ -9,7 +9,17 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"  # Automatically redirect HTTP to HTTPS
 spec:
   rules:
-    - host: lucinda2.jtmb.cc  # Replace with your domain
+    - host: lucinda.jtmb.cc  # Replace with your domain
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: lucinda-art-gallery-service
+                port:
+                  number: 80
+    - host: lucinda.rancher-dev.branconet.lan  # Replace with your domain
       http:
         paths:
           - path: /
@@ -22,6 +32,7 @@ spec:
   tls:
     - hosts:
         - lucinda.jtmb.cc  # Replace with your domain
+        - lucinda.rancher-dev.branconet.lan  # Replace with your alternate domain
       secretName: lucinda-art-gallery-tls  # This is the name of the TLS certificate secret
 
 
