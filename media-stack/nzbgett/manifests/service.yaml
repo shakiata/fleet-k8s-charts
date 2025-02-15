@@ -8,6 +8,6 @@ spec:
     app: nzbgett
   ports:
     - protocol: TCP
-      port: 9117
-      targetPort: 9117
+      port: 6789
+      targetPort: 6789
   type: ClusterIP
