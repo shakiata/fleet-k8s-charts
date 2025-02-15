@@ -20,14 +20,14 @@ spec:
                 name: plex-service
                 port:
                   number: 32400
-    # - host: plex.rancher.diggingin.pw # Replace with your domain
+    # - host: plex.diggingin.pw # Replace with your domain
     #   http:
     #     paths:
     #       - path: /
     #         pathType: Prefix
     #         backend:
     #           service:
-    #             name: lucinda-art-gallery-service
+    #             name: plex-service-external
     #             port:
     #               number: 80
   tls:
