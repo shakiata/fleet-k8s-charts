@@ -32,7 +32,6 @@ spec:
   tls:
     - hosts:
         - lucinda.jtmb.cc  # Replace with your domain
-        - lucinda.rancher-dev.branconet.lan  # Replace with your alternate domain
       secretName: lucinda-art-gallery-tls  # This is the name of the TLS certificate secret
 
 
