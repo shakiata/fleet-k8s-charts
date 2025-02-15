@@ -1,22 +1,22 @@
 apiVersion: v1
 kind: List
 items:
-  - apiVersion: v1
-    kind: Namespace
-    metadata:
-      name: wordpress-stack
+  # - apiVersion: v1
+  #   kind: Namespace
+  #   metadata:
+  #     name: wordpress-stack
 
-  - apiVersion: v1
-    kind: Namespace
-    metadata:
-      name: hookie
+  # - apiVersion: v1
+  #   kind: Namespace
+  #   metadata:
+  #     name: hookie
 
   - apiVersion: v1
     kind: Namespace
     metadata:
       name: media-stack
 
-  - apiVersion: v1
-    kind: Namespace
-    metadata:
-      name: website-stack
+  # - apiVersion: v1
+  #   kind: Namespace
+  #   metadata:
+  #     name: website-stack
