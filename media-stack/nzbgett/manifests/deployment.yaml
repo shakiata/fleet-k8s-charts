@@ -18,9 +18,9 @@ spec:
           image: linuxserver/nzbget
           env:
             - name: PUID
-              value: "1000"
+              value: "0"
             - name: PGID
-              value: "1000"
+              value: "0"
             - name: TZ
               value: "America/New_York" # Replace with your timezone
           ports:
@@ -29,7 +29,12 @@ spec:
           volumeMounts:
             - name: config
               mountPath: /config
+            - name: downloads
+              mountPath: /media
       volumes:
         - name: config
           persistentVolumeClaim:
             claimName: nzbgett-config-pvc
+        - name: downloads
+          persistentVolumeClaim:
+            claimName: nzbgett-samba-pvc
