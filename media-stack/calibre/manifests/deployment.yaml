@@ -35,6 +35,6 @@ spec:
         - name: config
           persistentVolumeClaim:
             claimName: calibre-config-pvc
-        - name: downloads
+        - name: media
           persistentVolumeClaim:
             claimName: calibre-samba-pvc
