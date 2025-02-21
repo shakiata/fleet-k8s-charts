@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: calibre
-          image: linuxserver/calibre-web:latest
+          image: linuxserver/calibre:latest
           env:
             - name: PUID
               value: "0"
@@ -24,7 +24,7 @@ spec:
             - name: TZ
               value: "America/New_York" # Replace with your timezone
           ports:
-            - containerPort: 8083
+            - containerPort: 8080
               protocol: TCP
           volumeMounts:
             - name: config
