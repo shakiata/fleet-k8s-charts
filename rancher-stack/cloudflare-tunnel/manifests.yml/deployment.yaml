@@ -14,18 +14,18 @@ spec:
         app: cloudflared-tunnel
     spec:
       containers:
-      - name: cloudflared
-        image: cloudflare/cloudflared:latest
-        command:
-          - "cloudflared"
-          - "tunnel"
-          - "--no-autoupdate"
-          - "run"
-          - "--token"
-          - "$(TUNNEL_TOKEN)"  # Direct environment variable substitution
-        env:
-        - name: TUNNEL_TOKEN
-          valueFrom:
-            secretKeyRef:
-              name: cloudflare-tunnel-secret
-              key: TUNNEL_TOKEN
+        - name: cloudflared
+          image: cloudflare/cloudflared:latest
+          command:
+            - "cloudflared"
+            - "tunnel"
+            - "--no-autoupdate"
+            - "run"
+            - "--token"
+            - "$(TUNNEL_TOKEN)" # Direct environment variable substitution
+          env:
+            - name: TUNNEL_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: cloudflare-tunnel-secret
+                  key: TUNNEL_TOKEN
