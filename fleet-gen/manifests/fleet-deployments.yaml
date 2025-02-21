@@ -20,7 +20,7 @@ spec:
   repo: "https://github.com/shakaita/fleet-k8s-charts.git"
   branch: "master"
   paths:
-    - "rancher-stack/**"
+    - "rancher-stack"
 
 ---
 # apiVersion: fleet.cattle.io/v1alpha1
