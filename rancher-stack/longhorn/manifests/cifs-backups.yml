@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: longhorn-test-cifs
+  namespace: default
+  labels:
+    app: longhorn-test-cifs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: longhorn-test-cifs
+  template:
+    metadata:
+      labels:
+        app: longhorn-test-cifs
+    spec:
+      volumes:
+      - name: cifs-volume
+        emptyDir: {}
+      - name: smb-plex-volume
+        persistentVolumeClaim:
+          claimName: smb-plex-pvc
+      containers:
+      - name: longhorn-test-cifs-container
+        image: derekbit/samba:latest
+        ports:
+        - containerPort: 139
+        - containerPort: 445
+        imagePullPolicy: Always
+        env:
+        - name: EXPORT_PATH
+          value: /opt/backupstore
+        - name: CIFS_DISK_IMAGE_SIZE_MB
+          value: "4096"
+        - name: CIFS_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: cifs-secret
+              key: CIFS_USERNAME
+        - name: CIFS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: cifs-secret
+              key: CIFS_PASSWORD
+        securityContext:
+          privileged: true
+          capabilities:
+            add: ["SYS_ADMIN", "DAC_READ_SEARCH"]
+        volumeMounts:
+        - name: cifs-volume
+          mountPath: "/opt/backupstore"
+        - name: smb-plex-volume
+          mountPath: "/mnt/plex_smb_share"
+        args: ["-u", "$(CIFS_USERNAME);$(CIFS_PASSWORD)", "-s", "backupstore;$(EXPORT_PATH);yes;no;no;all;none"]
