@@ -12,8 +12,8 @@ metadata:
     gethomepage.dev/name: NZBGett
     gethomepage.dev/widget.type: "nzbget"
     gethomepage.dev/widget.url: "nzbgett-service.media-stack.svc.cluster.local:6789"
-    gethomepage.dev/widget.username: homepage
-    gethomepage.dev/widget.password: test1
+    gethomepage.dev/widget.username: "homepage"
+    gethomepage.dev/widget.password: "test1"
 spec:
   rules:
     - host: nzbgett.rke # Replace with your domain
