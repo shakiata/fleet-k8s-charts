@@ -5,10 +5,10 @@ metadata:
   namespace: media-stack
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    gethompage.dev/decscription: NZBGett
-    gethomepage.dev/enabled: "true"
-    gethomepage.dev/group: Media
-    gethomepage.dev/icon: http://nzbgett.rke/img/icons.png
+    # gethompage.dev/decscription: NZBGett
+    # gethomepage.dev/enabled: "true"
+    # gethomepage.dev/group: Media
+    # gethomepage.dev/icon: http://nzbgett.rke/img/icons.png
 spec:
   rules:
     - host: nzbgett.rke # Replace with your domain
