@@ -29,4 +29,3 @@ spec:
                 secretKeyRef:
                   name: cloudflare-tunnel-secret
                   key: TUNNEL_TOKEN
-docker run cloudflare/cloudflared:latest tunnel --no-autoupdate run --token eyJhIjoiZTMwNDhmNDI0Y2JiNjAzNWM2ZWEwNGQ0NmZjMTdlYTgiLCJ0IjoiN2NhZGU0MDYtZmM4Mi00YTY0LWE5NTUtM2Y4NmY0ZWViOGUzIiwicyI6Ik16SXhaR1psTURBdE9HWmhZeTAwWmpNNUxUa3lNVFV0Wm1RMll6SmhZalpsWmpndyJ9

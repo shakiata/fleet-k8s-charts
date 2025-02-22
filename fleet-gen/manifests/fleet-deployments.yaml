@@ -17,7 +17,7 @@ metadata:
   name: rancher-stack-deployment
   namespace: fleet-local
 spec:
-  repo: "https://github.com/shakaita/fleet-k8s-charts.git"
+  repo: "https://github.com/shakiata/fleet-k8s-charts.git"
   branch: "master"
   paths:
     - "rancher-stack"
