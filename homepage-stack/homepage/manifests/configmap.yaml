@@ -41,12 +41,15 @@ data:
               href: https://github.com/shakiata/
     - Managment:
         - ESXI:
+            - abbr: ESXI
             href: http://10.10.68.7/
             description: Don't Touch
         - PFSENSE:
+            - abbr: PF
             href: http://10.10.68.1
             description: Firewall
         - PiHole:
+            - abbr: PI
             href: http://pi.box/admin/login.php
 
   services.yaml: ""
