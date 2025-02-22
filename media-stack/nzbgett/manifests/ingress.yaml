@@ -12,7 +12,7 @@ metadata:
     gethomepage.dev/name: NZBGett
     gethomepage.dev/widget.type: "nzbget"
     gethomepage.dev/widget.url: "http://nzbgett.rke"
-    homepage.dev/healthCheck: nzbgett-service
+    homepage.dev/healthCheck: "https://nzbgett-service.media-stack.svc.cluster.local:6789"
 spec:
   rules:
     - host: nzbgett.rke # Replace with your domain
