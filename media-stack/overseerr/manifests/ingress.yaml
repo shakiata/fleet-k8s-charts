@@ -10,7 +10,7 @@ metadata:
     gethomepage.dev/description: Overseerr is a media manager
     gethomepage.dev/enabled: "true"
     gethomepage.dev/group: Media
-    gethomepage.dev/icon: http://overseerr.rke/overseerr_medium.png
+    gethomepage.dev/icon: https://overseerr.rke/logo_full.svg
     gethomepage.dev/name: Overseerr
 
 spec:

@@ -10,7 +10,7 @@ metadata:
     gethomepage.dev/description: Plex is a media server
     gethomepage.dev/enabled: "true"
     gethomepage.dev/group: Media
-    gethomepage.dev/icon: http://plex.rke/plex_medium.png
+    gethomepage.dev/icon: https://www.plex.tv/wp-content/themes/plex/assets/img/plex-logo.svg
 spec:
   rules:
     - host: plex.rke # Replace with your domain

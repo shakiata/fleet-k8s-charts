@@ -38,20 +38,25 @@ data:
             - abbr: GH
               href: https://github.com/shakiata/
   services.yaml: |
-    - My First Group:
-        - My First Service:
-            href: http://localhost/
-            description: Homepage is awesome
+    - Managment:
+        - ESXI:
+            href: http://10.10.68.7/
+            description: Don't Touch
+        - PFSENSE:
+            href: http://10.10.68.1
+            description: Firewall
+        - PiHole:
+            href: http://pi.box/admin/login.php
 
-    - My Second Group:
-        - My Second Service:
-            href: http://localhost/
-            description: Homepage is the best
+    # - My Second Group:
+    #     - My Second Service:
+    #         href: http://localhost/
+    #         description: Homepage is the best
 
-    - My Third Group:
-        - My Third Service:
-            href: http://localhost/
-            description: Homepage is 😎
+    # - My Third Group:
+    #     - My Third Service:
+    #         href: http://localhost/
+    #         description: Homepage is 😎
   widgets.yaml: |
     - kubernetes:
         cluster:
