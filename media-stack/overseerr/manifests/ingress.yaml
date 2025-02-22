@@ -7,6 +7,11 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
     cert-manager.io/cluster-issuer: letsencrypt-prod # Specify your ClusterIssuer
     nginx.ingress.kubernetes.io/ssl-redirect: "true" # Automatically redirect HTTP to HTTPS
+    gethomepage.dev/description: Overseerr is a media manager
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/group: Media
+    gethomepage.dev/icon: http://overseerr.rke/overseerr_medium.png
+    gethomepage.dev/name: Overseerr
 
 spec:
   rules:

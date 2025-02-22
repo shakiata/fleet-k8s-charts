@@ -5,6 +5,11 @@ metadata:
   namespace: media-stack
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    gethomepage.dev/description: Jackett is a torrent proxy
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/group: Media
+    gethomepage.dev/icon: http://jackett.rke/jacket_medium.png
+    gethomepage.dev/name: Jackett
 spec:
   rules:
     - host: jackett.rke # Replace with your domain

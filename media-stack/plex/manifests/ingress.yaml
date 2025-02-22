@@ -7,7 +7,10 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
     cert-manager.io/cluster-issuer: letsencrypt-prod # Specify your ClusterIssuer
     nginx.ingress.kubernetes.io/ssl-redirect: "true" # Automatically redirect HTTP to HTTPS
-
+    gethomepage.dev/description: Plex is a media server
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/group: Media
+    gethomepage.dev/icon: http://plex.rke/plex_medium.png
 spec:
   rules:
     - host: plex.rke # Replace with your domain

@@ -5,6 +5,11 @@ metadata:
   namespace: media-stack
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    gethomepage.dev/description: Radarr
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/group: Media
+    gethomepage.dev/icon: http://radarr.rke/Content/Images/logo-full.png
+    gethomepage.dev/name: Radarr
 spec:
   rules:
     - host: radarr.rke # Replace with your domain

@@ -5,6 +5,10 @@ metadata:
   namespace: cattle-system
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    gethomepage.dev/description: Rancher
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/group: Cluster Management
+    gethomepage.dev/icon: https://rancher.diggingin.pw/dashboard/img/rancher-logo.3680d0eb.svg
 spec:
   rules:
     - host: rancher.rke  # Replace with your domain
