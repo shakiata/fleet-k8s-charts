@@ -57,15 +57,17 @@ spec:
               subPath: widgets.yaml
             - mountPath: /app/config/logs
               name: homepage-logs
-      volumes:
-        - name: homepage-config
-          persistentVolumeClaim:
-            claimName: hompage-config-pvc
-        - name: homepage-logs
-          emptyDir: {}
       # volumes:
       #   - name: homepage-config
-      #     configMap:
-      #       name: homepage
-      #   - name: logs
+      #     persistentVolumeClaim:
+      #       claimName: hompage-config-pvc
+      #   - name: homepage-logs
+      #     persistentVolumeClaim:
+      #       claimName: homepage-config-pvc
       #     emptyDir: {}
+      volumes:
+        - name: homepage-config
+          configMap:
+            name: homepage
+        - name: logs
+          emptyDir: {}
