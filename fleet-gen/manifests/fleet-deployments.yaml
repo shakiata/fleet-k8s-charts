@@ -33,6 +33,17 @@ spec:
   branch: "master"
   paths:
     - "minecraft-stack/**"
+---
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: homepage-stack-deployment
+  namespace: fleet-local
+spec:
+  repo: "https://github.com/shakiata/fleet-k8s-charts.git"
+  branch: "master"
+  paths:
+    - "homepage-stack/**"
 
 ---
 # apiVersion: fleet.cattle.io/v1alpha1

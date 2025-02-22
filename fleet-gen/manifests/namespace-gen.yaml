@@ -10,6 +10,10 @@ items:
   #   kind: Namespace
   #   metadata:
   #     name: hookie
+  - apiVersion: v1
+    kind: Namespace
+    metadata:
+      name: homepage-stack
 
   - apiVersion: v1
     kind: Namespace
