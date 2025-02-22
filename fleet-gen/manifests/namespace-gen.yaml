@@ -15,6 +15,11 @@ items:
     kind: Namespace
     metadata:
       name: media-stack
+  
+  - apiVersion: v1
+    kind: Namespace
+    metadata:
+      name: minecraft-stack
 
   # - apiVersion: v1
   #   kind: Namespace

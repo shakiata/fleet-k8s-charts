@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minecraft-server
+  namespace: minecraft-stack
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minecraft-server
+  template:
+    metadata:
+      labels:
+        app: minecraft-server
+    spec:
+      containers:
+        - name: minecraft-server
+          image: itzg/minecraft-server
+          env:
+            - name: PUID
+              value: "0"
+            - name: PGID
+              value: "0"
+            - name: TZ
+              value: "America/New_York" # Replace with your timezone
+            - name: MEMORY
+              value: "2G"
+            - name: MAX_MEMORY
+              value: "4G"
+            - name: INIT_MEMORY
+              value: "2G"
+            - name: MOTD
+              value: "Defeating a sandwich only makes it tastier."
+            - name: ENABLE_RCON
+              value: "TRUE"
+            - name: EXEC_DIRECTLY
+              value: "TRUE"
+            - name: CPUS
+              value: "2"
+            - name: EULA
+              value: "TRUE"
+            - name: TUNE_VIRTUALIZED
+              value: "TRUE"
+            - name: TUNE_NURSERY_SIZES
+              value: "TRUE"
+            - name: RCON_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-server-rcon-secret
+                  key: password
+          ports:
+            - containerPort: 25565
+              protocol: TCP
+          volumeMounts:
+            - name: config
+              mountPath: /data
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: minecraft-server-config-pvc
