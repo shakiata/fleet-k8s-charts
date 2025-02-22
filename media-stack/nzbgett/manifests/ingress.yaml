@@ -12,6 +12,7 @@ metadata:
     gethomepage.dev/name: NZBGett
     gethomepage.dev/widget.type: "nzbget"
     gethomepage.dev/widget.url: "http://nzbgett.rke"
+    homepage.dev/healthCheck: nzbgett-service
 spec:
   rules:
     - host: nzbgett.rke # Replace with your domain
