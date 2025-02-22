@@ -8,6 +8,8 @@ spec:
   selector:
     matchLabels:
       app: nzbgett
+      app.kubernetes.io/name: nzbgett-ingress
+
   template:
     metadata:
       labels:
