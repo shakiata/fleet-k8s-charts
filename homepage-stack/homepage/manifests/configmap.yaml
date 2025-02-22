@@ -8,8 +8,14 @@ metadata:
 data:
   kubernetes.yaml: |
     mode: cluster
-  settings.yaml: ""
-  #settings.yaml: |
+  # settings.yaml: ""
+  settings.yaml: |
+    title: Shak Net 2.0
+    description: The second revision to the greatness
+    background:
+      image: https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?cs=srgb&dl=pexels-pixabay-531880.jpg&fm=jpg
+      opacity: 40
+      brightness: 50
   #  providers:
   #    longhorn:
   #      url: https://longhorn.my.network
