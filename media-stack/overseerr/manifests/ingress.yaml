@@ -12,10 +12,8 @@ metadata:
     gethomepage.dev/group: Media
     gethomepage.dev/icon: https://overseerr.rke/logo_full.svg
     gethomepage.dev/name: Overseerr
-    gethomepage.dev/href: overseerr.rke
     gethomepage.dev/ping: overseerr.rke
-    gethomepage.dev/siteMonitor: overseerr.rke
-
+    gethomepage.dev/pod-selector: ""
 
 spec:
   rules:
