@@ -68,6 +68,6 @@ spec:
       volumes:
         - name: homepage-config
           configMap:
-            name: homepage
+            name: homepage-service
         - name: logs
           emptyDir: {}
