@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: blog-jtmb-ingress
-  namespace: wordpress-stack
+  namespace: minecraft-stack
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
