@@ -50,5 +50,5 @@ roleRef:
   name: homepage
 subjects:
   - kind: ServiceAccount
-    name: homepage
+    name: homepage-service-account
     namespace: homepage-stack
