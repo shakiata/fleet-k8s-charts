@@ -32,12 +32,13 @@ data:
   #      url: https://longhorn.my.network
   custom.css: ""
   custom.js: ""
+  
+  # bookmarks.yaml: ""
   bookmarks.yaml: |
     - Developer:
         - Github:
             - abbr: GH
               href: https://github.com/shakiata/
-  services.yaml: |
     - Managment:
         - ESXI:
             href: http://10.10.68.7/
@@ -48,15 +49,17 @@ data:
         - PiHole:
             href: http://pi.box/admin/login.php
 
-    # - My Second Group:
-    #     - My Second Service:
-    #         href: http://localhost/
-    #         description: Homepage is the best
+  # services.yaml: |
 
-    # - My Third Group:
-    #     - My Third Service:
-    #         href: http://localhost/
-    #         description: Homepage is 😎
+  #   # - My Second Group:
+  #   #     - My Second Service:
+  #   #         href: http://localhost/
+  #   #         description: Homepage is the best
+
+  #   # - My Third Group:
+  #   #     - My Third Service:
+  #   #         href: http://localhost/
+  #   #         description: Homepage is 😎
   widgets.yaml: |
     - kubernetes:
         cluster:
