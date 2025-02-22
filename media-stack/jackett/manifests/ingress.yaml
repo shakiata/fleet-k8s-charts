@@ -10,6 +10,7 @@ metadata:
     gethomepage.dev/group: Media
     gethomepage.dev/icon: http://jackett.rke/jacket_medium.png
     gethomepage.dev/name: Jackett
+    gethomepage.dev/pod-selector: ""
 spec:
   rules:
     - host: jackett.rke # Replace with your domain
