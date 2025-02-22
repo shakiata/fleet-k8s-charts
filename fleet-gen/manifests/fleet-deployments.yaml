@@ -32,7 +32,7 @@ spec:
   repo: "https://github.com/shakiata/fleet-k8s-charts.git"
   branch: "master"
   paths:
-    - "minecraft-stack"
+    - "minecraft-stack/**"
 
 ---
 # apiVersion: fleet.cattle.io/v1alpha1
