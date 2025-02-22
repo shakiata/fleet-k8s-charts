@@ -22,7 +22,7 @@ spec:
             - "--no-autoupdate"
             - "run"
             - "--token"
-            - "$(TUNNEL_TOKEN)" # Direct environment variable substitution
+            - "$(TUNNEL_TOKEN)" # Direct environment variable substitution a
           env:
             - name: TUNNEL_TOKEN
               valueFrom:
