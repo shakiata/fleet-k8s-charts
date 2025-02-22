@@ -5,7 +5,7 @@ metadata:
   namespace: minecraft-stack
 spec:
   selector:
-    app: blog-jtmb
+    app: minecraft-sever
   ports:
     - protocol: TCP
       port: 25565
@@ -22,9 +22,10 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: plex
+    app: minecraft-sever
   ports:
+    - protocol: TCP
       port: 25565
       targetPort: 25565
-      nodePort: 25565 # Ensure this port is open on your nodes
-      protocol: TCP
+      nodePort: 30065 # Ensure this port is open on your nodes
+
