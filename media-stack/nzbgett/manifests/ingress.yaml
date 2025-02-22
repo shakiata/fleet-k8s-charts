@@ -11,6 +11,8 @@ metadata:
     gethomepage.dev/icon: http://nzbgett.rke/img/icons.png
     gethomepage.dev/name: NZBGett
     gethomepage.dev/ping: "http://nzbgett.rke"
+    gethomepage.dev/pod-selector: ""
+
 spec:
   rules:
     - host: nzbgett.rke # Replace with your domain

@@ -10,6 +10,7 @@ metadata:
     gethomepage.dev/group: Media
     gethomepage.dev/icon: http://radarr.rke/Content/Images/logo-full.png
     gethomepage.dev/name: Radarr
+    gethomepage.dev/pod-selector: ""
 spec:
   rules:
     - host: radarr.rke # Replace with your domain

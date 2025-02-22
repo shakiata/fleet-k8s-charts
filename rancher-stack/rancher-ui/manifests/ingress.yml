@@ -9,6 +9,7 @@ metadata:
     gethomepage.dev/enabled: "true"
     gethomepage.dev/group: Cluster Management
     gethomepage.dev/icon: https://rancher.diggingin.pw/dashboard/img/rancher-logo.3680d0eb.svg
+    gethomepage.dev/pod-selector: ""
 spec:
   rules:
     - host: rancher.rke  # Replace with your domain

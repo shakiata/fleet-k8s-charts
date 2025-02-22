@@ -11,6 +11,7 @@ metadata:
     gethomepage.dev/enabled: "true"
     gethomepage.dev/group: Media
     gethomepage.dev/icon: https://www.plex.tv/wp-content/themes/plex/assets/img/plex-logo.svg
+    gethomepage.dev/pod-selector: ""
 spec:
   rules:
     - host: plex.rke # Replace with your domain

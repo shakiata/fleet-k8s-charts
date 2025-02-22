@@ -10,6 +10,7 @@ metadata:
     gethomepage.dev/group: Media
     gethomepage.dev/icon: http://sonarr.rke/Content/Images/logo.svg
     gethomepage.dev/name: Sonarr
+    gethomepage.dev/pod-selector: ""
 spec:
   rules:
     - host: sonarr.rke # Replace with your domain
