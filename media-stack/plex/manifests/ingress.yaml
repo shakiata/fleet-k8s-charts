@@ -14,7 +14,7 @@ metadata:
     gethomepage.dev/pod-selector: ""
     gethomepage.dev/widget.type: plex
     gethomepage.dev/widget.url: https://plex.diggingin.pw
-    gethomepage.dev/widget.key: {{ .Values.plex-secret }}
+    gethomepage.dev/widget.key: {{ (lookup "v1" "Secret" "media-stack" "plex-secret" ).data.plexkey | b64dec  }}
 spec:
   rules:
     - host: plex.rke # Replace with your domain
