@@ -1,0 +1,2 @@
+plex-secret: {{ (lookup "v1" "Secret" "media-stack" "plex-secret" ).data.plexkey | b64dec  }}
+
