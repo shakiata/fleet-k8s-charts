@@ -43,6 +43,12 @@ spec:
   repo: "https://github.com/shakiata/fleet-k8s-charts.git"
   branch: "master"
   paths:
+    - "homepage-stack/homepage/manifests/role.yaml"
+    - "homepage-stack/homepage/manifests/service-account.yaml"
+    - "homepage-stack/homepage/manifests/service.yaml"
+    - "homepage-stack/homepage/manifests/secret.yaml"
+    - "homepage-stack/homepage/manifests/configmap.yaml"
+    - "homepage-stack/homepage/manifests/deployment.yaml"
     - "homepage-stack/**"
 
 ---
