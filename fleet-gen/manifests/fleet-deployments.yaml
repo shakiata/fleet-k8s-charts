@@ -8,6 +8,7 @@ spec:
   repo: "https://github.com/shakiata/fleet-k8s-charts.git"
   branch: "master"
   paths:
+    - "media-stack/plex/manifests/values.yaml"
     - "media-stack"
 
 ---
