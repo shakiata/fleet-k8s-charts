@@ -12,11 +12,6 @@ metadata:
     gethomepage.dev/group: Media
     gethomepage.dev/icon: https://www.plex.tv/wp-content/themes/plex/assets/img/plex-logo.svg
     gethomepage.dev/pod-selector: ""
-    gethomepage.dev/widget.type: plex
-    gethomepage.dev/widget.url: https://plex.diggingin.pw
-    gethomepage.dev/widget.key:
-      key: plexkey
-      secret: plex-secret
 spec:
   rules:
     - host: plex.rke # Replace with your domain
