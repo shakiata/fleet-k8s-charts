@@ -45,9 +45,9 @@ spec:
   branch: "master"
   paths:
     - "homepage-stack/homepage/manifests/role.yaml"
+    - "homepage-stack/homepage/manifests/secret.yaml"
     - "homepage-stack/homepage/manifests/service-account.yaml"
     - "homepage-stack/homepage/manifests/service.yaml"
-    - "homepage-stack/homepage/manifests/secret.yaml"
     - "homepage-stack/homepage/manifests/configmap.yaml"
     - "homepage-stack/homepage/manifests/deployment.yaml"
     - "homepage-stack/**"
