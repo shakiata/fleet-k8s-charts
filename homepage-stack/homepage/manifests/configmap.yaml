@@ -86,9 +86,4 @@ data:
     - search:
         provider: duckduckgo
         target: _blank
-    - nzbget
-        type: nzbget
-        url: http://nzbget.rke
-        username: homepage
-        password: test1
   docker.yaml: ""
