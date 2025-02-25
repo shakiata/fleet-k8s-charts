@@ -43,6 +43,6 @@ spec:
     - ReadWriteMany
   resources:
     requests:
-      storage: 5Gi
+      storage: 1Gi
   volumeName: plex-samba-pv
   storageClassName: "" # Ensures it binds to the manually created PV
