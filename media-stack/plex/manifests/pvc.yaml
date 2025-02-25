@@ -18,7 +18,7 @@ metadata:
   name: plex-samba-pv
 spec:
   capacity:
-    storage: 1Gi # Updated to reflect a larger capacity
+    storage: 5Gi # Updated to reflect a larger capacity
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
