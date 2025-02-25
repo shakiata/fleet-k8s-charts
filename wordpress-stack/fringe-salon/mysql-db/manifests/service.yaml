@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: blog-jtmb-mysql-service
+  name: fringe-salon-mysql-service
   namespace: wordpress-stack
 spec:
   selector:
-    app: blog-jtmb-mysql
+    app: fringe-salon-mysql
   ports:
     - protocol: TCP
       port: 3306

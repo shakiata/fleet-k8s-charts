@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: blog-jtmb
+  name: fringe-salon
   namespace: wordpress-stack
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: blog-jtmb
+      app: fringe-salon
   template:
     metadata:
       labels:
-        app: blog-jtmb
+        app: fringe-salon
     spec:
       containers:
-        - name: blog-jtmb
+        - name: fringe-salon
           image: wordpress:latest
           env:
             - name: PUID
@@ -24,7 +24,7 @@ spec:
             - name: TZ
               value: "America/New_York" # Replace with your timezone
             - name: WORDPRESS_DB_HOST
-              value: blog-jtmb-mysql-service
+              value: fringe-salon-mysql-service
             - name: WORDPRESS_DB_USER
               value: db_user
             - name: WORDPRESS_DB_PASSWORD
@@ -43,4 +43,4 @@ spec:
       volumes:
         - name: config
           persistentVolumeClaim:
-            claimName: blog-jtmb-config-pvc
+            claimName: fringe-salon-config-pvc

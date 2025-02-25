@@ -1,19 +1,19 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: blog-jtmb-ingress
+  name: fringe-salon-ingress
   namespace: wordpress-stack
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: wordpress.rancher-dev.branconet.lan # Replace with your domain
+    - host: wordpress.rke # Replace with your domain
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: blog-jtmb-service
+                name: fringe-salon-service
                 port:
                   number: 80

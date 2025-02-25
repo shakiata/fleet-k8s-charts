@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: blog-jtmb-redis
+  name: fringe-salon-redis
   namespace: wordpress-stack
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: blog-jtmb-redis
+      app: fringe-salon-redis
   template:
     metadata:
       labels:
-        app: blog-jtmb-redis
+        app: fringe-salon-redis
     spec:
       containers:
-        - name: blog-jtmb-redis
+        - name: fringe-salon-redis
           image: redis:alpine
           env:
             - name: PUID
