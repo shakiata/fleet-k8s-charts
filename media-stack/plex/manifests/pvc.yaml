@@ -8,7 +8,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 3Gi
+      storage: 5Gi
   storageClassName: longhorn # Explicitly set Longhorn as the storage class
 
 ---
@@ -43,6 +43,6 @@ spec:
     - ReadWriteMany
   resources:
     requests:
-      storage: 3Gi
+      storage: 5Gi
   volumeName: plex-samba-pv
   storageClassName: "" # Ensures it binds to the manually created PV
