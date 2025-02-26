@@ -25,11 +25,11 @@ spec:
               value: "America/New_York" # Replace with your timezone
             - name: MYSQL_USER
               value: db_user
-            # - name: MYSQL_PASSWORD
-            #   valueFrom:
-            #     secretKeyRef:
-            #       name: wordpress-db-secret
-            #       key: password
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: wordpress-db-secret
+                  key: password
             - name: WORDPRESS_DB_PASSWORD
               valueFrom:
                 secretKeyRef:
