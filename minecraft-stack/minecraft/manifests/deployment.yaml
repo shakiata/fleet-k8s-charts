@@ -56,7 +56,7 @@ spec:
               mountPath: /data
             - name: test
               subPath: test.yaml
-              mountPath: /data
+              mountPath: /test
       volumes:
         - name: config
           persistentVolumeClaim:
