@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: minecraft-server
+  namespace: minecraft-stack
+  labels:
+    app.kubernetes.io/name: minecraft
+data:
+  test.yaml: |
+    foo: bar
+    baz: qux
+    
