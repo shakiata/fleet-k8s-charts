@@ -54,7 +54,7 @@ spec:
           volumeMounts:
             - name: config
               mountPath: /data
-            - name: test
+            - name: test-configmap
               subPath: test.yaml
               mountPath: /test/test.yaml
       volumes:
