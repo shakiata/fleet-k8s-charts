@@ -8,7 +8,7 @@ spec:
     server: https://acme-v02.api.letsencrypt.org/directory
     email: shawn@diggingin.pw # Replace with your email address
     privateKeySecretRef:
-      name: letsencrypt-prod
+      name: letsencrypt-wordpress-stack
     solvers:
       - http01:
           ingress:
