@@ -5,7 +5,7 @@ metadata:
   namespace: wordpress-stack
 spec:
   selector:
-    app: blog-jtmb-redis
+    app: fringe-salon-redis
   ports:
     - protocol: TCP
       port: 6379

@@ -5,7 +5,7 @@ metadata:
   namespace: wordpress-stack
 spec:
   selector:
-    app: blog-jtmb
+    app: fringe-salon
   ports:
     - protocol: TCP
       port: 80
