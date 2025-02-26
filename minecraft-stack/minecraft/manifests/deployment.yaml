@@ -48,14 +48,14 @@ spec:
                 secretKeyRef:
                   name: minecraft-server-rcon-secret
                   key: password
-            - mountPath: /data
-              name: test
-              subPath: test.yaml
           ports:
             - containerPort: 25565
               protocol: TCP
           volumeMounts:
             - name: config
+              mountPath: /data
+            - name: test
+              subPath: test.yaml
               mountPath: /data
       volumes:
         - name: config
