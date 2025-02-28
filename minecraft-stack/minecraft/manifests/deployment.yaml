@@ -58,21 +58,24 @@ spec:
           volumeMounts:
             - name: config
               mountPath: /data
-            - name: configmap
+            - name: ops-configmap
               mountPath: /data/ops.json
               subPath: ops.json
-            - name: configmap
+            - name: plugins-configmap
               mountPath: /extras/mods.txt
-            - name: configmap
+            - name: essentias-configmap
               mountPath: /data/Essentials/config.yml
               subPath: config.yml
       volumes:
         - name: config
           persistentVolumeClaim:
             claimName: minecraft-server-config-pvc
-        - name: configmap
+        - name: ops-configmap
           configMap:
-            name: minecraft-server
+            name: ops-config
+        - name: essentias-configmap
+          configMap:
+            name: essentials-config
         - name: plugins-configmap
           configMap:
             name: minecraft-plugins
