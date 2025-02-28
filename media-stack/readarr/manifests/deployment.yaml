@@ -34,8 +34,8 @@ spec:
       volumes:
         - name: config
           persistentVolumeClaim:
-            # claimName: readarr-config-pvc
-            claimName: readarr-samba-pvc
+            claimName: readarr-config-pvc
+            # claimName: readarr-samba-pvc
         - name: downloads
           persistentVolumeClaim:
             claimName: readarr-samba-pvc
