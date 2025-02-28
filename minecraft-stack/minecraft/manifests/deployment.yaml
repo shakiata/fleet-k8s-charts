@@ -61,6 +61,8 @@ spec:
           ports:
             - containerPort: 25565
               protocol: TCP
+            - containerPort: 8123
+              protocol: TCP
           volumeMounts:
             - name: config
               mountPath: /data
