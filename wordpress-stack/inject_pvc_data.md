@@ -1,1 +1,0 @@
-kubectl cp mysql-db blog-jtmb-8b7df7588-92k54:/var/lib/mysql -n wordpress-stack     

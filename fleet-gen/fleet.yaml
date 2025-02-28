@@ -1,9 +1,0 @@
-apiVersion: fleet.cattle.io/v1alpha1
-kind: Bundle
-metadata:
-  name: fleet-k8s-charts-bundle
-  namespace: fleet-local
-spec:
-  clusterSelector:
-    matchLabels:
-      management.cattle.io/cluster-name: fleet-local
