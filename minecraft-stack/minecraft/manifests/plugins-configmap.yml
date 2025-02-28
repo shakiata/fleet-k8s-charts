@@ -5,13 +5,13 @@ metadata:
   namespace: minecraft-stack
 data:
   mods.txt: |
-    https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/EssentialsX.jar
-    https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/BlueMap-Essentials.jar
-    https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/CoreProtect.jar
-    https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/CraftGPT.jar
-    https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/CustomRecipeAPI.jar
-    https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/LuckPerms-Bukkit.jar
+    https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/BlueMap-Essentials-1.1.3.jar
+    https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/CoreProtect-22.4.jar
+    https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/CraftGPT-1.4.jar
+    https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/CustomRecipeAPI-1.6.0.jar
+    https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/EssentialsX-2.21.0-dev%2B182-e49021f.jar
+    https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/LuckPerms-Bukkit-5.4.156.jar
     https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/TreeFeller.jar
-    https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/LuckPerms-GUI.jar
-    https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/WorldEdit.jar
-    https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/WorldGuard.jar
+    https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/luckpermsgui-1.7.1-all.jar
+    https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/worldedit-bukkit-7.3.10.jar
+    https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/worldguard-bukkit-7.0.13-dist.jar
