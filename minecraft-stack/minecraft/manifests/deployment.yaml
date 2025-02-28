@@ -14,8 +14,7 @@ spec:
         app: minecraft-server
     spec:
       securityContext:
-        fsGroup: 1000 
-        runAsUser: 1000  # Ensures mounted files are accessible by the minecraft user
+        fsGroup: 1000
       containers:
         - name: minecraft-server
           image: itzg/minecraft-server
