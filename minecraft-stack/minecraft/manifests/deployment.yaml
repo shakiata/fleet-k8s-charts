@@ -66,7 +66,7 @@ spec:
               mountPath: /data/ops.json
               subPath: ops.json
             - name: plugins-configmap
-              mountPath: /extras
+              mountPath: /extras/mods.txt
               subPath: mods.txt
             - name: essentias-configmap
               mountPath: /data/Essentials/config.yml
