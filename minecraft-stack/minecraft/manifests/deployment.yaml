@@ -73,7 +73,7 @@ spec:
         - name: configmap
           configMap:
             name: minecraft-server
-        - name: configmap
+        - name: plugins-configmap
           configMap:
             name: minecraft-plugins
 
