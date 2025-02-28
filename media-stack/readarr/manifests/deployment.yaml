@@ -1,40 +1,41 @@
-# apiVersion: apps/v1
-# kind: Deployment
-# metadata:
-#   name: readarr
-#   namespace: media-stack
-# spec:
-#   replicas: 1
-#   selector:
-#     matchLabels:
-#       app: readarr
-#   template:
-#     metadata:
-#       labels:
-#         app: readarr
-#     spec:
-#       containers:
-#         - name: readarr
-#           image: linuxserver/readarr:develop
-#           env:
-#             - name: PUID
-#               value: "0"
-#             - name: PGID
-#               value: "0"
-#             - name: TZ
-#               value: "America/New_York" # Replace with your timezone est
-#           ports:
-#             - containerPort: 8787
-#               protocol: TCP
-#           volumeMounts:
-#             - name: config
-#               mountPath: /config
-#             - name: downloads
-#               mountPath: /media
-#       volumes:
-#         - name: config
-#           persistentVolumeClaim:
-#             claimName: readarr-config-pvc
-#         - name: downloads
-#           persistentVolumeClaim:
-#             claimName: readarr-samba-pvc
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readarr
+  namespace: media-stack
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readarr
+  template:
+    metadata:
+      labels:
+        app: readarr
+    spec:
+      containers:
+        - name: readarr
+          image: linuxserver/readarr:develop
+          env:
+            - name: PUID
+              value: "0"
+            - name: PGID
+              value: "0"
+            - name: TZ
+              value: "America/New_York" # Replace with your timezone est
+          ports:
+            - containerPort: 8787
+              protocol: TCP
+          volumeMounts:
+            - name: config
+              mountPath: /redarconfig/config
+            - name: downloads
+              mountPath: /media
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            # claimName: readarr-config-pvc
+            claimName: readarr-samba-pvc
+        - name: downloads
+          persistentVolumeClaim:
+            claimName: readarr-samba-pvc
