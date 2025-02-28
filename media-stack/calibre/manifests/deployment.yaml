@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: calibre
-          image: linuxserver/calibre-web:latest
+          image: linuxserver/calibre:latest
           env:
             - name: PUID
               value: "0"
