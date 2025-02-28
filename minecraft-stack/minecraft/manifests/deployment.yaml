@@ -26,9 +26,9 @@ spec:
             - name: PLUGINS
               value: |
             - name: PUID
-              value: "0"
+              value: "1000"
             - name: PGID
-              value: "0"
+              value: "1000"
             - name: TZ
               value: "America/New_York" # Replace with your timezone
             - name: MEMORY
