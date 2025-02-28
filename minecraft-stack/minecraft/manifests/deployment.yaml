@@ -34,7 +34,7 @@ spec:
             - name: TZ
               value: "America/New_York" # Replace with your timezone
             - name: MEMORY
-              value: "2G"
+              value: "4G"
             - name: MAX_MEMORY
               value: "4G"
             - name: INIT_MEMORY
@@ -46,7 +46,7 @@ spec:
             - name: EXEC_DIRECTLY
               value: "TRUE"
             - name: CPUS
-              value: "2"
+              value: "4"
             - name: EULA
               value: "TRUE"
             - name: TUNE_VIRTUALIZED
