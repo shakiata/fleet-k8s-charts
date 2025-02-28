@@ -19,6 +19,10 @@ spec:
           env:
             - name: MODS_FILE
               value: /extras/mods.txt
+            - name: PORT
+              value: "25565"
+            - name: TYPE
+              value: "PAPER"
             - name: PLUGINS
               value: |
             - name: PUID
