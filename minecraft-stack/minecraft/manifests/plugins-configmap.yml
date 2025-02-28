@@ -8,10 +8,10 @@ data:
     https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/EssentialsX.jar
     https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/BlueMap-Essentials.jar
     https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/CoreProtect.jar
-  # https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/CraftGPT.jar
-  # https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/CustomRecipeAPI.jar
-  # https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/LuckPerms-Bukkit.jar
-  # https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/TreeFeller.jar
-  # https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/LuckPerms-GUI.jar
-  # https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/WorldEdit.jar
-  # https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/WorldGuard.jar
+    https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/CraftGPT.jar
+    https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/CustomRecipeAPI.jar
+    https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/LuckPerms-Bukkit.jar
+    https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/TreeFeller.jar
+    https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/LuckPerms-GUI.jar
+    https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/WorldEdit.jar
+    https://github.com/shakiata/fleet-k8s-charts/blob/mc-plugins/minecraft-plugins/WorldGuard.jar
