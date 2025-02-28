@@ -33,15 +33,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: dynmap-server-service
+  name: bluemap-mc-server-service
   namespace: minecraft-stack
 spec:
   selector:
     app: minecraft-server
   ports:
     - protocol: TCP
-      port: 8123
-      targetPort: 8123
+      port: 8100
+      targetPort: 8100
   type: ClusterIP
 
 

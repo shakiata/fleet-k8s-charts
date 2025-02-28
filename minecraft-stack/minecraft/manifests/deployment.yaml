@@ -61,7 +61,7 @@ spec:
           ports:
             - containerPort: 25565
               protocol: TCP
-            - containerPort: 8123
+            - containerPort: 8100
               protocol: TCP
           volumeMounts:
             - name: config
