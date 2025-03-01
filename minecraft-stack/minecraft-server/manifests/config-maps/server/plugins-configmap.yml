@@ -5,7 +5,7 @@ metadata:
   namespace: minecraft-stack
 data:
   mods.txt: |
-    https://ci.ender.zone/job/EssentialsX/lastSuccessfulBuild/artifact/jars/EssentialsX-2.21.0-dev+182-e49021f.jar
+    https://github.com/EssentialsX/Essentials/releases/download/2.20.1/EssentialsX-2.20.1.jar
     https://download.luckperms.net/1573/bukkit/loader/LuckPerms-Bukkit-5.4.156.jar
     https://github.com/fuzziejaxer/LuckPermsGUI/releases/download/1.16.5/luckpermsgui-1.6.1-SNAPSHOT-all.jar
     https://github.com/ThizThizzyDizzy/tree-feller/releases/download/v1.25.1/TreeFeller-1.25.1.jar
