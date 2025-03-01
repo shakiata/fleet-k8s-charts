@@ -51,6 +51,9 @@ data:
         - PiHole:
             - abbr: PI
               href: http://pi.box/admin/login.php
+        - CloudFlare:
+            - abbr: CF
+              href: https://dash.cloudflare.com/
 
   services.yaml: ""
   # services.yaml: |

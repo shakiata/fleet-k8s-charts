@@ -5,6 +5,12 @@ metadata:
   namespace: minecraft-stack
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    gethomepage.dev/description: BlueMap is a Minecraft map renderer
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/group: Minecraft
+    gethomepage.dev/name: BlueMap
+    gethomepage.dev/ping: bluemap.rke
+    gethomepage.dev/pod-selector: ""
 spec:
   rules:
     - host: bluemap.rke  # Replace with your domain
