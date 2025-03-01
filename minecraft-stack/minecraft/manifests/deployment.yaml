@@ -75,6 +75,18 @@ spec:
             - name: essentias-configmap
               mountPath: /data/Essentials/config.yml
               subPath: config.yml
+            - name: core-configmap
+              mountPath: /data/plugins/BlueMap/core.conf
+              subPath: core.conf
+            - name: plugin-configmap
+              mountPath: /data/plugins/BlueMap/plugin.conf
+              subPath: plugin.conf
+            - name: webapp-configmap
+              mountPath: /data/plugins/BlueMap/webapp.conf
+              subPath: webapp.conf
+            - name: webserver-configmap
+              mountPath: /data/plugins/BlueMap/webserver.conf
+              subPath: webserver.conf
       volumes:
         - name: config
           persistentVolumeClaim:
@@ -88,4 +100,16 @@ spec:
         - name: plugins-configmap
           configMap:
             name: minecraft-plugins
+        - name: core-configmap
+          configMap:
+            name: core-config
+        - name: plugin-configmap
+          configMap:
+            name: plugin-config
+        - name: webapp-configmap
+          configMap:
+            name: webapp-config
+        - name: webserver-configmap
+          configMap:
+            name: webserver-config
 
