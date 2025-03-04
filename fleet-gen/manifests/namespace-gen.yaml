@@ -25,6 +25,11 @@ items:
     metadata:
       name: minecraft-stack
 
+  - apiVersion: v1
+    kind: Namespace
+    metadata:
+      name: monitoring-stack
+
   # - apiVersion: v1
   #   kind: Namespace
   #   metadata:

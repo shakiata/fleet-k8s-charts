@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uptime-kuma
+  namespace: monitoring-stack
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: uptime-kuma
+  template:
+    metadata:
+      labels:
+        app: uptime-kuma
+    spec:
+      containers:
+        - name: uptime-kuma
+          image: louislam/uptime-kuma
+          env:
+            - name: TZ
+              value: "America/New_York" # Replace with your timezone
+          ports:
+            - containerPort: 3001
+              protocol: TCP
+          volumeMounts:
+            - name: config
+              mountPath: /app/data
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: uptime-kuma-config-pvc
