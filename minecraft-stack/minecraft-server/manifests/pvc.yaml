@@ -5,7 +5,7 @@ metadata:
   namespace: minecraft-stack
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany #allows pvc to be mounted by multiple pods
   resources:
     requests:
       storage: 10Gi
