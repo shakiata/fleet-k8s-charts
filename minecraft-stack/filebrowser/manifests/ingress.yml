@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: filebrowser-internal-ingress
+  namespace: minecraft-stack
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    gethomepage.dev/description: filebrowser for minecraft
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/group: Minecraft
+    gethomepage.dev/name: filebrowser
+    gethomepage.dev/ping: filebrowser.rke
+    gethomepage.dev/pod-selector: ""
+spec:
+  rules:
+    - host: filebrowser.rke  # Replace with your domain
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: filebrowser-service
+                port:
+                  number: 80

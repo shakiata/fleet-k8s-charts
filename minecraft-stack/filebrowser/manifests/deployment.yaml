@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: filebrowser
+  namespace: minecraft-stack
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: filebrowser
+  template:
+    metadata:
+      labels:
+        app: filebrowser
+    spec:
+      securityContext:
+        fsGroup: 1000
+      containers:
+        - name: filebrowser
+          image: filebrowser/filebrowser
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          volumeMounts:
+            - name: database
+              mountPath: /database.db
+            - name: config
+              mountPath: /.filebrowser.json
+            - name: mc-data
+              mountPath: /data
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: filebrowser-config-pvc
+        - name: database
+          persistentVolumeClaim:
+            claimName: filebrowser-database-pvc
+        - name: mc-data
+          persistentVolumeClaim:
+            claimName: minecraft-server-config-pvc
