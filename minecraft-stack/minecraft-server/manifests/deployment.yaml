@@ -39,7 +39,7 @@ spec:
             - name: MAX_MEMORY
               value: "4G"
             - name: INIT_MEMORY
-              value: "2G"
+              value: "4G"
             - name: MOTD
               value: "Defeating a sandwich only makes it tastier."
             - name: ENABLE_RCON

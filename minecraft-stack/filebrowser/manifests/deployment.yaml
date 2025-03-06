@@ -21,8 +21,8 @@ spec:
                   - key: role
                     operator: In
                     values:
-                      - minecraft-server
-              topologyKey: "kubernetes.io/hostname"  # Ensure this is set correctly
+                      - minecraft-server # Ensure this pod deploys on the same node as the minecraft-server pod so they can share a longhorn pvc with ReadWriteOnce access mode.
+              topologyKey: "kubernetes.io/hostname"  
       containers:
         - name: filebrowser
           image: hurlenko/filebrowser
