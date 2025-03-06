@@ -41,7 +41,7 @@ spec:
             - name: INIT_MEMORY
               value: "4G"
             - name: MOTD
-              value: "§f§9diggingin.pw§f ! §8| §aMULTIWORLD §8| §eECONOMY §8| §7LAND CLAIMS §8| §dCUSTOM PROGRESSION/XP"
+              value: "! §f§9diggingin.pw§f ! §8| §aMULTIWORLD §8| §eECONOMY §8| §7LAND CLAIMS §8| §dCUSTOM PROGRESSION/XP"
             - name: ENABLE_RCON
               value: "TRUE"
             - name: EXEC_DIRECTLY
