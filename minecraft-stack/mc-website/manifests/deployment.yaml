@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: mc-web
-          image: jtmb92/mcweb:latest # Replace with your actual image
+          image: jtmb92/mcweb:diggingin # Replace with your actual image
           ports:
             - containerPort: 80
