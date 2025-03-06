@@ -33,7 +33,7 @@ spec:
   repo: "https://github.com/shakiata/fleet-k8s-charts.git"
   branch: "master"
   paths:
-    - "minecraft-stack/minecraft-server
+    - "minecraft-stack/minecraft-server"
     - "minecraft-stack/filebrowser"
     - "minecraft-stack/**"
 ---
