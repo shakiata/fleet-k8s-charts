@@ -22,6 +22,7 @@ spec:
                     operator: In
                     values:
                       - minecraft-server
+              topologyKey: "kubernetes.io/hostname"  # Ensure this is set correctly
       containers:
         - name: filebrowser
           image: filebrowser/filebrowser
