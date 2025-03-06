@@ -74,7 +74,7 @@ spec:
               mountPath: /extras/mods.txt
               subPath: mods.txt
             - name: essentias-configmap
-              mountPath: /data/Essentials/config.yml
+              mountPath: /data/Plugins/Essentials/config.yml
               subPath: config.yml
             - name: core-configmap
               mountPath: /data/plugins/BlueMap/core.conf
