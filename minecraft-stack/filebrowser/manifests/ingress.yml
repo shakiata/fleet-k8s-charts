@@ -11,6 +11,9 @@ metadata:
     gethomepage.dev/name: filebrowser
     gethomepage.dev/ping: filebrowser.rke
     gethomepage.dev/pod-selector: ""
+    nginx.ingress.kubernetes.io/proxy-buffers: "8"
+    nginx.ingress.kubernetes.io/proxy-buffer-size: "64k"
+    nginx.ingress.kubernetes.io/client-max-body-size: "75M"
 spec:
   rules:
     - host: filebrowser.rke  # Replace with your domain
