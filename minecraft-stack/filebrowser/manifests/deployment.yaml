@@ -38,7 +38,7 @@ spec:
             - name: config
               mountPath: /config
             - name: mc-data
-              mountPath: /data
+              mountPath: /data/mc
       volumes:
         - name: config
           persistentVolumeClaim:
