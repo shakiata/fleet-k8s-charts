@@ -12,6 +12,7 @@ spec:
     metadata:
       labels:
         app: minecraft-server
+        role: minecraft-server
     spec:
       securityContext:
         fsGroup: 1000

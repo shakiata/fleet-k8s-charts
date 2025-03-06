@@ -13,8 +13,15 @@ spec:
       labels:
         app: filebrowser
     spec:
-      securityContext:
-        fsGroup: 1000
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: role
+                    operator: In
+                    values:
+                      - minecraft-server
       containers:
         - name: filebrowser
           image: filebrowser/filebrowser
