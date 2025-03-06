@@ -1,0 +1,206 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cookieminion-config
+  namespace: minecraft-stack
+  labels:
+    app.kubernetes.io/name: minecraft
+data:
+  config.yml: |
+    ###
+    # Welcome to the config for CookieMinion!
+    #
+    # Hopefully I managed to make this config easy enough to understand :)
+    #
+    ###
+
+    # Should mobs from a mob spawner reward the player?
+    allowMobSpawnerRewards: false
+
+    # If a mob dies and no player killed it, should it still drop items?
+    allowNaturalDeathItemDrops: true
+
+    # If you have a multiworld installation with special worlds 
+    # that you don't want players distracted by farming rewards
+    # Note: This setting is case-sensitive!
+    disabledWorlds:
+        - put_your_world_name_here
+        - any_world_that_mobs_should_not_reward_players
+        - lobby
+        - world
+
+    # New to CookieMonster: drop money as a shiny item!
+    # If true, rewards are not given to the player until they 'pick up' the reward
+    physicalMoneyDrops: true
+    # For the item, nearly any value in this list is acceptable:
+    # https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
+    moneyDropItem: EMERALD
+    # Colors: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/ChatColor.html
+    moneyDropColor: GOLD
+    # can any player pick up the reward item, or just the one who earned it?
+    moneyDropOnlyForKiller: false
+
+    # if we are splitting the rewards, everyone who did damage gets a portion proportional to the damage dealt
+    # if true and physicalMoneyDrops:true, this implies moneyDropOnlyForKiller:true as well
+    splitRewardsEvenly: false
+
+    # how many decimal places does your currency have?
+    moneyDecimalPlaces: 2
+
+    # You can provide currency multipliers for permissions groups for all monsters here
+    # The player will be matched only once and with the first permission in the list
+    # if you define a multiplier section in a reward section, that is used instead
+    multipliers:
+        - cookiemonster.vip: 2
+        - cookiemonster.extra: 3
+
+    # now for the actual rewards!
+    rewards:
+        # In general, any LivingEntity can be defined here.
+        # I don't have a handy list, but you can use this as a reference: 
+        # https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/entity/EntityType.html 
+        # the 'default' setting here is for anything that you don't have explicitly defined
+        default:
+            enabled: true
+            # you can specify an exact value
+            amount: 3.14
+            # or you can specify a range (if defined, we ignore the amount setting)
+            min: 2
+            max: 4
+            # if you have a range specified, do you want decimals? (default true)
+            allowDecimals: true
+            # you can also set the amount of experience dropped:
+            # note that this replaces the default minecreaft experience drops
+            #xpmin: 3
+            #xpmax: 6
+            # You can provide currency multipliers for permissions groups, too
+            # The player will be matched only once and with the first permission in the list
+            multipliers:
+                - cookiemonster.vip: 2
+                - cookiemonster.extra: 3
+            # You can also have extra drops added to the loot!
+            # each item has a type or id, a data value [or a data range], max number, and a percentage chance to drop 
+            # you can also set some NBT values in curly brackets {}
+            # if you specify a percentage range, the upper value is used for fortune 3 kills, with the midpoints for 1 & 2
+            loot: 
+                - LAPIS_LAZULI@2%50
+                - MELON%10
+                - IRON_NUGGET%10
+                - PLAYER_HEAD{SkullOwner:"jascotty2"}%.5-2
+                - IRON_SWORD{Enchantments:[{id:21,lvl:1}]}%30
+                - IRON_SWORD:[50-200]{Enchantments:[{id:"Mending"}]}%10
+                - GOLD_NUGGET
+              #- MUSIC_DISC{song:"CaptainSparklez_-_Revenge"}%100 #Example of how to add a music disc from MusicBox. You can get the file name with '/musicbox give <user>' and the disc's name should be in the tab complete.
+            # The loot table is checked sequentially
+            # use this if you want it to stop once it's provided a certain number of drops
+            maxLoot: 1
+            # Set replace to true if you don't want the mob to drop its default loot
+            replaceLoot: false
+            # custom message for killing this entity
+            # note that if you start a string with a &-code, you do need quotes around the message
+            # Also note: other entities will use this 'default' setting if not defined
+            message: "&aYou earned &6$money$ &afor the kill!"
+            # you can also specify a command for the console to run!
+            # @p = player name
+            # $entity$ = the name of the entity or entity type
+            # $money$ = the amount of money won
+            commands:
+                - /say &9@p &ajust killed a $entity$ and earned &6$money$!
+        
+        PLAYER:
+            condition:
+                type: PLAYER
+                permission: cookiemonster.thief
+            # Player config has some special settings
+            min: 20
+            max: 50
+            loot:
+            - PLAYER_HEAD{SkullOwner:"@victim"}%1
+            # If stealing is enabled, killing the player will drop some of their money
+            # Of course, if the amount is negative, the killer pays the victim ;)
+            stealReward: true
+            message: "&aYou managed to steal &6$money$ &afrom &c$entity$!"
+        custom_player:
+            # you can additionally define custom entity types here ;)
+            condition:
+                type: PLAYER
+                name: jascotty2
+                # you can also define a uuid instead of a player name
+            min: 30
+            max: 80
+            message: "&aYou killed a dev!"
+        zombie_baby:
+            condition:
+                type: ZOMBIE
+                baby: true
+            min: 5
+            max: 8
+            
+            
+        # More you can use!
+    #    
+    #    BAT
+    #    BLAZE
+    #    CAVE_SPIDER
+    #    CHICKEN
+    #    COW
+    #    CREEPER
+    #    DOLPHIN
+    #    DONKEY
+    #    ELDER_GUARDIAN
+    #    ENDER_DRAGON
+    #    ENDERMAN
+    #    ENDERMITE
+    #    EVOKER
+    #    FOX
+    #    GHAST
+    #    GIANT
+    #    GUARDIAN
+    #    HOGLIN
+    #    HORSE
+    #    HUSK
+    #    ILLUSIONER
+    #    IRON_GOLEM
+    #    LLAMA
+    #    MAGMA_CUBE
+    #    MULE
+    #    MUSHROOM_COW
+    #    OCELOT
+    #    PARROT
+    #    PHANTOM
+    #    PIG
+    #    PIGLIN
+    #    PILLAGER
+    #    POLAR_BEAR
+    #    PUFFERFISH
+    #    RABBIT
+    #    RAVAGER
+    #    SALMON
+    #    SHEEP
+    #    SHULKER
+    #    SILVERFISH
+    #    SKELETON
+    #    SKELETON_HORSE
+    #    SLIME
+    #    SNOWMAN
+    #    SPIDER
+    #    SQUID
+    #    STRAY
+    #    STRIDER
+    #    TRADER_LLAMA
+    #    TROPICAL_FISH
+    #    TURTLE
+    #    VEX
+    #    VILLAGER
+    #    VINDICATOR
+    #    WANDERING_TRADER
+    #    WITCH
+    #    WITHER
+    #    WITHER_SKELETON
+    #    WOLF
+    #    ZOGLIN
+    #    ZOMBIE
+    #    ZOMBIE_HORSE
+    #    ZOMBIE_VILLAGER
+
+  

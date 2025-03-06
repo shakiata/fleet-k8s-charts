@@ -88,6 +88,12 @@ spec:
             - name: webserver-configmap
               mountPath: /data/plugins/BlueMap/webserver.conf
               subPath: webserver.conf
+            - name: multiverse-core-configmap
+              mountPath: /data/plugins/Multiverse-Core/config.yml
+              subPath: config.yml
+            - name: cookieminion-configmap
+              mountPath: /data/plugins/CookieMinion/config.yml
+              subPath: config.yml
       volumes:
         - name: config
           persistentVolumeClaim:
@@ -113,4 +119,10 @@ spec:
         - name: webserver-configmap
           configMap:
             name: webserver-config
+        - name: multiverse-core-configmap
+          configMap:
+            name: cookieminion-config
+        - name: cookieminion-configmap
+          configMap:
+            name: cookieminion-config
 
