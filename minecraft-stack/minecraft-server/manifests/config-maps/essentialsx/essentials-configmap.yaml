@@ -749,6 +749,15 @@ data:
     # This doesn't affect running the command from the console, where a world is always required.
     allow-world-in-broadcastworld: true
 
+    # Broadcast custom server messages
+    auto-broadcast:
+      enabled: true
+      interval: 10  # Time in seconds between announcements (default: 5 min 300)
+      random: false  # Set to true if you want messages to appear randomly
+      messages:
+        - "&aDid you know you can get money and rare loot from slaying monsters?"
+        - "&bDon't forget! You can sell your items in the auction with ah /sell <price> !"
+
     # Consider water blocks as "safe," therefore allowing players to teleport
     # using commands such as /home or /spawn to a location that is occupied
     # by water blocks
