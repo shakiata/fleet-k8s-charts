@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mc-web
+  namespace: website-stack
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mc-web
+  template:
+    metadata:
+      labels:
+        app: mc-web
+    spec:
+      containers:
+        - name: mc-web
+          image: jtmb92/mcweb:latest # Replace with your actual image
+          ports:
+            - containerPort: 80
