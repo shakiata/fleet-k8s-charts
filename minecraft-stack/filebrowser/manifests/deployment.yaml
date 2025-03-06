@@ -33,7 +33,7 @@ spec:
             - containerPort: 8080
               protocol: TCP
           volumeMounts:
-            - name: data_dir
+            - name: datadir
               mountPath: /data
             - name: config
               mountPath: /config
@@ -43,7 +43,7 @@ spec:
         - name: config
           persistentVolumeClaim:
             claimName: filebrowser-config-pvc
-        - name: data_dir
+        - name: datadir
           persistentVolumeClaim:
             claimName: filebrowser-database-pvc
         - name: mc-data
