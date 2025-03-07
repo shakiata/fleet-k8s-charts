@@ -34,12 +34,10 @@ spec:
               value: "1000"
             - name: TZ
               value: "America/New_York" # Replace with your timezone
-            - name: MEMORY
-              value: "4G"
             - name: MAX_MEMORY
               value: "4G"
             - name: INIT_MEMORY
-              value: "4G"
+              value: "2G"
             - name: MOTD
               value: "§f§9minecraft.diggingin.pw§f §8| §aMULTIWORLD §8| §eECONOMY §8| §7LAND CLAIMS §8| §dCUSTOM PROGRESSION/XP"
             - name: ENABLE_RCON
