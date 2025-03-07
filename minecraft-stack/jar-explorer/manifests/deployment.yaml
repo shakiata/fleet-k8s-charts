@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jar-explorer
+  namespace: minecraft-stack
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jar-explorer
+  template:
+    metadata:
+      labels:
+        app: jar-explorer
+    spec:
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: role
+                    operator: In
+                    values:
+                      - filebrowser # Ensure this pod deploys on the same node as the minecraft-server pod so they can share a longhorn pvc with ReadWriteOnce access mode.
+              topologyKey: "kubernetes.io/hostname"  
+      containers:
+        - name: jar-explorer
+          image: jtmb92/jar-explorer
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          volumeMounts:
+            - name: config
+              mountPath: /usr/share/nginx/html/files
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: jar-explorer-config-pvc

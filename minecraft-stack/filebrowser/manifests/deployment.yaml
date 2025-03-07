@@ -39,6 +39,8 @@ spec:
               mountPath: /config
             - name: mc-data
               mountPath: /data/mc
+            - name: jar-explorer-data
+              mountPath: /data/jar-explorer
       volumes:
         - name: config
           persistentVolumeClaim:
@@ -49,3 +51,6 @@ spec:
         - name: mc-data
           persistentVolumeClaim:
             claimName: minecraft-server-config-pvc
+        - name: jar-explorer-data
+          persistentVolumeClaim:
+            claimName: jar-explorer-config-pvc
