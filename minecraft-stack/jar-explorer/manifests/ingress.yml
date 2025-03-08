@@ -16,8 +16,12 @@ metadata:
     nginx.ingress.kubernetes.io/client-max-body-size: "0"
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
 spec:
+  tls:
+    - hosts:
+        - jar-explorer.rke
+      secretName: jar-explorer-tls  # This should be created with a valid certificate
   rules:
-    - host: jar-explorer.rke  # Replace with your domain
+    - host: jar-explorer.rke
       http:
         paths:
           - path: /
