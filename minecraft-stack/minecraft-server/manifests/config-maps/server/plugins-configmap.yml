@@ -7,7 +7,9 @@ data:
   mods.txt: |
     http://jar-explorer.rke/files/CookieMinion-1.14.0.jar
     http://jar-explorer.rke/files/EssentialsX-2.20.1.jar
+    http://jar-explorer.rke/files/GriefPrevention.jar
     http://jar-explorer.rke/files/LuckPerms-Bukkit-5.4.156.jar
+    http://jar-explorer.rke/files/NCCasino-1.4.7.jar
     http://jar-explorer.rke/files/PlayerAuctions%201.30.2.jar
     http://jar-explorer.rke/files/Quests-5.2.1.jar
     http://jar-explorer.rke/files/TreeFeller-1.25.1.jar
@@ -21,5 +23,3 @@ data:
     http://jar-explorer.rke/files/multiverse-portals-4.2.3.jar
     http://jar-explorer.rke/files/worldedit-bukkit-7.3.10.jar
     http://jar-explorer.rke/files/worldguard-bukkit-7.0.13-dist.jar
-    http://jar-explorer.rke/files/GriefPrevention.jar
-    
