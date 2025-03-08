@@ -1,0 +1,17 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: jar-explorer-ca
+  namespace: minecraft-stack
+spec:
+  isCA: true
+  commonName: "jar-explorer.rke"
+  secretName: jar-explorer-ca-secret
+  duration: 8760h # 1 year
+  renewBefore: 720h # 30 days before expiration
+  privateKey:
+    algorithm: RSA
+    size: 2048
+  issuerRef:
+    name: selfsigned-cluster-issuer-minecraft-stack
+    kind: ClusterIssuer
