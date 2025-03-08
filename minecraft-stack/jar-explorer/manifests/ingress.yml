@@ -5,6 +5,7 @@ metadata:
   namespace: minecraft-stack
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"  # Disable automatic HTTPS redirects
     gethomepage.dev/description: jar-explorer for minecraft
     gethomepage.dev/enabled: "true"
     gethomepage.dev/group: Minecraft
@@ -17,7 +18,7 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
 spec:
   rules:
-    - host: jar-explorer.rke  # Replace with your domain
+    - host: jar-explorer.rke
       http:
         paths:
           - path: /
