@@ -378,10 +378,10 @@ data:
 
     enabledSigns:
       - color
-      #- balance
-      #- buy
-      #- sell
-      #- trade
+      - balance
+      - buy
+      - sell
+      - trade
       #- free
       - warp
       #- kit
@@ -401,7 +401,6 @@ data:
       #- loom
       #- smithing
       #- workbench
-      - randomteleport
 
     # How many times per second can Essentials signs be interacted with per player.
     # Values should be between 1-20, 20 being virtually no lag protection.
