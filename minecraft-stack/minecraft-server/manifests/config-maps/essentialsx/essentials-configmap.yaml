@@ -385,7 +385,7 @@ data:
       - command
       #- free
       - warp
-      #- kit
+      - kit
       #- mail
       - enchant
       #- gamemode
