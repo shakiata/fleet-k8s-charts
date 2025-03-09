@@ -386,9 +386,9 @@ data:
       - warp
       #- kit
       #- mail
-      #- enchant
+      - enchant
       #- gamemode
-      #- heal
+      - heal
       #- info
       #- spawnmob
       #- repair
