@@ -382,7 +382,6 @@ data:
       - buy
       - sell
       - trade
-      - command
       #- free
       - warp
       - kit
