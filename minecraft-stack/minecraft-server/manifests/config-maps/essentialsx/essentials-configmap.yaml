@@ -391,7 +391,7 @@ data:
       - heal
       #- info
       #- spawnmob
-      #- repair
+      - repair
       #- time
       #- weather
       #- anvil
