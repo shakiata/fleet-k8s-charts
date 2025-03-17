@@ -28,11 +28,6 @@ spec:
       port: 25565
       targetPort: 25565
       nodePort: 30065 # Ensure this port is open on your nodes
-    - protocol: UDP
-      port: 25565
-      targetPort: 25565
-      nodePort: 30065 # Ensure this port is open on your nodes
-
 ---
 
 apiVersion: v1
@@ -49,7 +44,7 @@ spec:
       port: 19132
       targetPort: 19132
       nodePort: 30066 # Ensure this port is open on your nodes
-      
+
 ---
 apiVersion: v1
 kind: Service
