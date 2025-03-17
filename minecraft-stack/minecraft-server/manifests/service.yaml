@@ -32,6 +32,24 @@ spec:
       port: 25565
       targetPort: 25565
       nodePort: 30065 # Ensure this port is open on your nodes
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: minecraft-server-nodeport-19132-service
+  namespace: minecraft-stack
+spec:
+  type: NodePort
+  selector:
+    app: minecraft-server
+  ports:
+    - protocol: UDP
+      port: 19132
+      targetPort: 19132
+      nodePort: 30066 # Ensure this port is open on your nodes
+      
 ---
 apiVersion: v1
 kind: Service
