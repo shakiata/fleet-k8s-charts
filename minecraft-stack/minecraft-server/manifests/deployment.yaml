@@ -41,7 +41,7 @@ spec:
             - name: MOTD
               value: "§f§9minecraft.diggingin.pw§f §8| §aMULTIWORLD §8| §eECONOMY §8| §7LAND CLAIMS §8| §dCUSTOM PROGRESSION/XP"
             - name: ENABLE_RCON
-              value: "TRUE"
+              value: "FALSE"
             - name: EXEC_DIRECTLY
               value: "TRUE"
             - name: CPUS
