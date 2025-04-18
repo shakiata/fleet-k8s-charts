@@ -28,7 +28,7 @@ spec:
             - name: config
               mountPath: /config
             - name: downloads
-              mountPath: /nintendo_drive
+              mountPath: /nintendo
       volumes:
         - name: config
           persistentVolumeClaim:
