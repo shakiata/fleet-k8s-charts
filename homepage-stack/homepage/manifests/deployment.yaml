@@ -28,7 +28,7 @@ spec:
           imagePullPolicy: Always
           env:
             - name: HOMEPAGE_ALLOWED_HOSTS
-              value: "homepage.rke"
+              value: homepage.rke
           ports:
             - name: http
               containerPort: 3000
