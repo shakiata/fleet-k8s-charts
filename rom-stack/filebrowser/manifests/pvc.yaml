@@ -38,10 +38,25 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   csi:
     driver: smb.csi.k8s.io
-    volumeHandle: radarr-samba-share
+    volumeHandle: rom-samba-share
     volumeAttributes:
       source: "//10.10.68.155/smb_drive/nintendo" # Explicitly define the source field
       options: "uid=0,gid=0,forceuid,forcegid,file_mode=0755"
     nodeStageSecretRef:
       name: samba-secret
       namespace: rom-stack
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: rom-samba-pvc
+  namespace: media-stack
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+  volumeName: rom-samba-pv
+  storageClassName: "" # Ensures it binds to the manually created PV
