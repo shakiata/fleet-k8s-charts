@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: filebrowser
+  namespace: rom-stack
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: filebrowser
+  template:
+    metadata:
+      labels:
+        app: filebrowser
+    spec:
+      containers:
+        - name: filebrowser
+          image: hurlenko/filebrowser
+          env:
+            - name: FB_BASEURL
+              value: /filebrowser
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          volumeMounts:
+            - name: datadir
+              mountPath: /data
+            - name: config
+              mountPath: /config
+            - name: downloads
+              mountPath: /nintendo
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: filebrowser-config-pvc
+        - name: datadir
+          persistentVolumeClaim:
+            claimName: filebrowser-database-pvc
+        - name: downloads
+          persistentVolumeClaim:
+            claimName: rom-samba-pvc
