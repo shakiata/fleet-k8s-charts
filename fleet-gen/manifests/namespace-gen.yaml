@@ -30,6 +30,11 @@ items:
     metadata:
       name: monitoring-stack
 
+  - apiVersion: v1
+    kind: Namespace
+    metadata:
+      name: rom-stack
+
   # - apiVersion: v1
   #   kind: Namespace
   #   metadata:
