@@ -15,7 +15,7 @@ spec:
         role: minecraft-server
     spec:
       securityContext:
-        fsGroup: 1000
+        fsGroup: 0
       containers:
         - name: minecraft-server
           image: itzg/minecraft-server
