@@ -29,7 +29,7 @@ spec:
               mountPath: /config
             - name: downloads
               mountPath: /data/
-              subPath: nintendo/nintendo-switch
+              subPath: nintendo/emulators
       volumes:
         - name: config
           persistentVolumeClaim:
