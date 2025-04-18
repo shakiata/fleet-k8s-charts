@@ -51,7 +51,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: rom-samba-pvc
-  namespace: media-stack
+  namespace: rom-stack
 spec:
   accessModes:
     - ReadWriteMany
