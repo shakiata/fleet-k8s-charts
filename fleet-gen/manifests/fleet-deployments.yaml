@@ -24,18 +24,18 @@ spec:
     - "rancher-stack"
 
 ---
-apiVersion: fleet.cattle.io/v1alpha1
-kind: GitRepo
-metadata:
-  name: minecraft-stack-deployment
-  namespace: fleet-local
-spec:
-  repo: "https://github.com/shakiata/fleet-k8s-charts.git"
-  branch: "master"
-  paths:
-    - "minecraft-stack/minecraft-server"
-    - "minecraft-stack/filebrowser"
-    - "minecraft-stack/**"
+#apiVersion: fleet.cattle.io/v1alpha1
+#kind: GitRepo
+#metadata:
+  #name: minecraft-stack-deployment
+  #namespace: fleet-local
+#spec:
+  #repo: "https://github.com/shakiata/fleet-k8s-charts.git"
+  #branch: "master"
+  #paths:
+  #  - "minecraft-stack/minecraft-server"
+   # - "minecraft-stack/filebrowser"
+   # - "minecraft-stack/**"
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
