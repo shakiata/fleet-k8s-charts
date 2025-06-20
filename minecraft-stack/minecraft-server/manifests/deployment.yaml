@@ -4,7 +4,7 @@ metadata:
   name: minecraft-server
   namespace: minecraft-stack
 spec:
-  replicas: 1
+  replicas: 0
   selector:
     matchLabels:
       app: minecraft-server

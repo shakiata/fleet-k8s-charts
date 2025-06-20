@@ -4,7 +4,7 @@ metadata:
   name: jar-explorer
   namespace: minecraft-stack
 spec:
-  replicas: 1
+  replicas: 0 
   selector:
     matchLabels:
       app: jar-explorer
