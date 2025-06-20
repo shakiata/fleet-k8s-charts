@@ -67,16 +67,16 @@ spec:
     - "rom-stack"
 
 ---
-# apiVersion: fleet.cattle.io/v1alpha1
-# kind: GitRepo
-# metadata:
-#   name: website-stack-deployment
-#   namespace: fleet-local
-# spec:
-#   repo: "https://github.com/shakiata/fleet-k8s-charts.git"
-#   branch: "master"
-#   paths:
-#     - "website-stack"
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: website-stack-deployment
+  namespace: fleet-local
+spec:
+  repo: "https://github.com/shakiata/fleet-k8s-charts.git"
+  branch: "master"
+  paths:
+    - "website-stack"
 
 ---
 apiVersion: fleet.cattle.io/v1alpha1
