@@ -20,7 +20,7 @@ spec:
             - name: QBITTORRENT_STATUS_NOTIFICATION
               value: "on"
             - name: QBITTORRENT_HOST
-              value: "http://qbittorrent.rke"
+              value: "https://qbittorrent.rke"
             - name: QBITTORRENT_USERNAME
               valueFrom:
                 secretKeyRef:
