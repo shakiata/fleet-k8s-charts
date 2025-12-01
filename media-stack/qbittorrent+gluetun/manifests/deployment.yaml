@@ -70,6 +70,8 @@ spec:
               value: "6881"
             - name: FIREWALL_INPUT_PORTS
               value: "6881,80,443,8112"
+            - name: OPENVPN_ENDPOINT_PORT:
+              value: "80,443,1194,4569,5060"
           volumeMounts:
             - name: config
               mountPath: /config
