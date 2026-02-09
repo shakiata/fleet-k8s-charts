@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: filebrowser
+  namespace: assetocorso-stack
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: filebrowser
+  template:
+    metadata:
+      labels:
+        app: filebrowser
+    spec:
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: role
+                    operator: In
+                    values:
+                      - assetto-corsa-server # Ensure this pod deploys on the same node as the assetto-corsa-server pod so they can share a longhorn pvc with ReadWriteOnce access mode.
+              topologyKey: "kubernetes.io/hostname"
+      containers:
+        - name: filebrowser
+          image: hurlenko/filebrowser
+          env:
+            - name: FB_BASEURL
+              value: /filebrowser
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          volumeMounts:
+            - name: datadir
+              mountPath: /data
+            - name: config
+              mountPath: /config
+            - name: steamapps
+              mountPath: /data/steamapps
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: filebrowser-config-pvc
+        - name: datadir
+          persistentVolumeClaim:
+            claimName: filebrowser-database-pvc
+        - name: steamapps
+          persistentVolumeClaim:
+            claimName: assetto-corsa-steamapps-pvc
