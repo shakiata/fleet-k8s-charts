@@ -4,7 +4,7 @@ metadata:
   name: assetto-corsa-server
   namespace: assetocorso-stack
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: assetto-corsa-server
