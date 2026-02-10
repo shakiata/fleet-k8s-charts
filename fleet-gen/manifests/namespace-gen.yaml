@@ -35,11 +35,6 @@ items:
     metadata:
       name: rom-stack
 
-  - apiVersion: v1
-    kind: Namespace
-    metadata:
-      name: assetocorso-stack
-
   # - apiVersion: v1
   #   kind: Namespace
   #   metadata:

@@ -27,15 +27,15 @@ spec:
 #apiVersion: fleet.cattle.io/v1alpha1
 #kind: GitRepo
 #metadata:
-  #name: minecraft-stack-deployment
-  #namespace: fleet-local
+#name: minecraft-stack-deployment
+#namespace: fleet-local
 #spec:
-  #repo: "https://github.com/shakiata/fleet-k8s-charts.git"
-  #branch: "master"
-  #paths:
-  #  - "minecraft-stack/minecraft-server"
-   # - "minecraft-stack/filebrowser"
-   # - "minecraft-stack/**"
+#repo: "https://github.com/shakiata/fleet-k8s-charts.git"
+#branch: "master"
+#paths:
+#  - "minecraft-stack/minecraft-server"
+# - "minecraft-stack/filebrowser"
+# - "minecraft-stack/**"
 ---
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
@@ -78,6 +78,7 @@ spec:
   paths:
     - "website-stack"
 
+
 # ---
 # apiVersion: fleet.cattle.io/v1alpha1
 # kind: GitRepo
@@ -101,17 +102,3 @@ spec:
   branch: "master"
   paths:
     - "monitoring-stack/**"
-
----
-apiVersion: fleet.cattle.io/v1alpha1
-kind: GitRepo
-metadata:
-  name: assetocorso-stack-deployment
-  namespace: fleet-local
-spec:
-  repo: "https://github.com/shakiata/fleet-k8s-charts.git"
-  branch: "master"
-  paths:
-    - "assetocorso-stack/**"
-
-
