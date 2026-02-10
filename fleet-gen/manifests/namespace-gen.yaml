@@ -19,7 +19,7 @@ items:
     kind: Namespace
     metadata:
       name: media-stack
-  
+
   - apiVersion: v1
     kind: Namespace
     metadata:
@@ -34,6 +34,11 @@ items:
     kind: Namespace
     metadata:
       name: rom-stack
+
+  - apiVersion: v1
+    kind: Namespace
+    metadata:
+      name: assetocorso-stack
 
   # - apiVersion: v1
   #   kind: Namespace
