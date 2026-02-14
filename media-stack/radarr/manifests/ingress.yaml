@@ -1,25 +1,25 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: radarr-ingress
-  namespace: media-stack
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-    gethomepage.dev/description: Radarr
-    gethomepage.dev/enabled: "true"
-    gethomepage.dev/group: Media
-    gethomepage.dev/icon: http://radarr.rke/Content/Images/logo-full.png
-    gethomepage.dev/name: Radarr
-    gethomepage.dev/pod-selector: ""
-spec:
-  rules:
-    - host: radarr.rke # Replace with your domain
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: radarr-service
-                port:
-                  number: 7878
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: radarr-ingress
+#   namespace: media-stack
+#   annotations:
+#     nginx.ingress.kubernetes.io/rewrite-target: /
+#     gethomepage.dev/description: Radarr
+#     gethomepage.dev/enabled: "true"
+#     gethomepage.dev/group: Media
+#     gethomepage.dev/icon: http://radarr.rke/Content/Images/logo-full.png
+#     gethomepage.dev/name: Radarr
+#     gethomepage.dev/pod-selector: ""
+# spec:
+#   rules:
+#     - host: radarr.rke # Replace with your domain
+#       http:
+#         paths:
+#           - path: /
+#             pathType: Prefix
+#             backend:
+#               service:
+#                 name: radarr-service
+#                 port:
+#                   number: 7878
