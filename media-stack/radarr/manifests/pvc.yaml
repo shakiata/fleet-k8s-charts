@@ -1,4 +1,24 @@
 apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pvc-d6dfa188-3cd7-4877-a87e-69db210d7e0d
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: longhorn
+  csi:
+    driver: driver.longhorn.io
+    fsType: ext4
+    volumeHandle: pvc-d6dfa188-3cd7-4877-a87e-69db210d7e0d
+    volumeAttributes:
+      numberOfReplicas: "3"
+      staleReplicaTimeout: "30"
+
+---
+apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: radarr-config-pvc
