@@ -10,6 +10,7 @@ spec:
     requests:
       storage: 1Gi
   storageClassName: longhorn # Explicitly set Longhorn as the storage class
+  volumeName: pvc-d6dfa188-3cd7-4877-a87e-69db210d7e0d # Bind to existing Longhorn volume with backup
 
 ---
 apiVersion: v1
