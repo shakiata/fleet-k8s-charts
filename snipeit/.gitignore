@@ -1,0 +1,11 @@
+# Prevent accidental commits of sensitive files
+*.env
+*.env.*
+*secret*.yaml
+*password*
+*key*
+.secrets/
+secrets/
+
+# But allow template files
+!*secret.yaml

@@ -1,0 +1,122 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: snipeit
+  namespace: snipeit
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: snipeit
+  template:
+    metadata:
+      labels:
+        app: snipeit
+    spec:
+      containers:
+        - name: snipeit
+          image: snipe/snipe-it:v7.1.2
+          env:
+            # Basic App Settings
+            - name: APP_ENV
+              value: "production"
+            - name: APP_DEBUG
+              value: "false"
+            - name: APP_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: snipeit-app-secret
+                  key: app-key
+            - name: APP_URL
+              value: "https://snipeit.yourdomain.com"
+            - name: APP_TIMEZONE
+              value: "America/New_York"
+            - name: APP_LOCALE
+              value: "en-US"
+            
+            # Database Settings (PostgreSQL)
+            - name: DB_CONNECTION
+              value: "pgsql"
+            - name: DB_HOST
+              value: "snipeit-postgres-service"
+            - name: DB_PORT
+              value: "5432"
+            - name: DB_DATABASE
+              value: "snipeit"
+            - name: DB_USERNAME
+              value: "snipeit_user"
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: snipeit-db-secret
+                  key: password
+                  
+            # Mail Settings (Update as needed)
+            - name: MAIL_DRIVER
+              value: "smtp"
+            - name: MAIL_HOST
+              value: "mail.yourdomain.com"
+            - name: MAIL_PORT
+              value: "587"
+            - name: MAIL_USERNAME
+              value: "snipeit@yourdomain.com"
+            - name: MAIL_PASSWORD
+              value: "your_mail_password"
+            - name: MAIL_ENCRYPTION
+              value: "tls"
+            - name: MAIL_FROM_ADDR
+              value: "snipeit@yourdomain.com"
+            - name: MAIL_FROM_NAME
+              value: "Snipe-IT Asset Management"
+            
+            # Session & Cache
+            - name: SESSION_DRIVER
+              value: "file"
+            - name: CACHE_DRIVER
+              value: "file"
+            
+            # File Storage
+            - name: PUBLIC_FILESYSTEM_DISK
+              value: "local"
+            - name: PRIVATE_FILESYSTEM_DISK
+              value: "local"
+              
+            # Security
+            - name: SECURE_COOKIES
+              value: "false"  # Set to true if using HTTPS
+            
+            # Optional: Backup settings
+            - name: BACKUP_ENV
+              value: "true"
+              
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          volumeMounts:
+            - name: snipeit-data
+              mountPath: /var/lib/snipeit
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 80
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            timeoutSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 80
+            initialDelaySeconds: 120
+            periodSeconds: 30
+            timeoutSeconds: 10
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "250m"
+            limits:
+              memory: "1Gi"
+              cpu: "500m"
+      volumes:
+        - name: snipeit-data
+          persistentVolumeClaim:
+            claimName: snipeit-app-pvc

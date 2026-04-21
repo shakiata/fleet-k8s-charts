@@ -101,3 +101,15 @@ spec:
   branch: "master"
   paths:
     - "monitoring-stack/**"
+
+# ---
+# apiVersion: fleet.cattle.io/v1alpha1
+# kind: GitRepo
+# metadata:
+#   name: snipeit-deployment
+#   namespace: fleet-local
+# spec:
+#   repo: "https://github.com/shakiata/fleet-k8s-charts.git"
+#   branch: "master"
+#   paths:
+#     - "snipeit/**"
