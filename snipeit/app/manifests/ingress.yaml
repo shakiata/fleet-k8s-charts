@@ -2,19 +2,14 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: snipeit-ingress
-  namespace: snipeit
+  namespace: snipeit-stack
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/proxy-body-size: "64m"
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
-  tls:
-    - hosts:
-        - snipeit.yourdomain.com
-      secretName: snipeit-tls
   rules:
-    - host: snipeit.yourdomain.com
+    - host: snipeit.rke
       http:
         paths:
           - path: /

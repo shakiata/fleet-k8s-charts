@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: snipeit
-  namespace: snipeit
+  namespace: snipeit-stack
 spec:
   replicas: 1
   selector:
@@ -28,12 +28,12 @@ spec:
                   name: snipeit-app-secret
                   key: app-key
             - name: APP_URL
-              value: "https://snipeit.yourdomain.com"
+              value: "http://snipeit.rke"
             - name: APP_TIMEZONE
               value: "America/New_York"
             - name: APP_LOCALE
               value: "en-US"
-            
+
             # Database Settings (PostgreSQL)
             - name: DB_CONNECTION
               value: "pgsql"
@@ -50,7 +50,7 @@ spec:
                 secretKeyRef:
                   name: snipeit-db-secret
                   key: password
-                  
+
             # Mail Settings (Update as needed)
             - name: MAIL_DRIVER
               value: "smtp"
@@ -68,27 +68,27 @@ spec:
               value: "snipeit@yourdomain.com"
             - name: MAIL_FROM_NAME
               value: "Snipe-IT Asset Management"
-            
+
             # Session & Cache
             - name: SESSION_DRIVER
               value: "file"
             - name: CACHE_DRIVER
               value: "file"
-            
+
             # File Storage
             - name: PUBLIC_FILESYSTEM_DISK
               value: "local"
             - name: PRIVATE_FILESYSTEM_DISK
               value: "local"
-              
+
             # Security
             - name: SECURE_COOKIES
-              value: "false"  # Set to true if using HTTPS
-            
+              value: "false" # Set to true if using HTTPS
+
             # Optional: Backup settings
             - name: BACKUP_ENV
               value: "true"
-              
+
           ports:
             - containerPort: 80
               protocol: TCP
