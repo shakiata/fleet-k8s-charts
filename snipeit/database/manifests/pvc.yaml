@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: snipeit-postgres-pvc
+  name: snipeit-mysql-pvc
   namespace: snipeit-stack
 spec:
   accessModes:
