@@ -25,18 +25,11 @@ spec:
               value: "America/New_York"
             - name: MYSQL_DATABASE
               value: "snipeit"
-            - name: MYSQL_USER
-              value: "snipeit_user"
-            - name: MYSQL_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: snipeit-db-secret
-                  key: password
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: snipeit-db-secret
-                  key: root-password
+                  key: password
           ports:
             - containerPort: 3306
               protocol: TCP
