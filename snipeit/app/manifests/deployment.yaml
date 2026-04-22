@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: snipeit
-          image: snipe/snipe-it:v7.1.2
+          image: snipe/snipe-it:v8.4.1
           env:
             # Basic App Settings
             - name: APP_ENV
