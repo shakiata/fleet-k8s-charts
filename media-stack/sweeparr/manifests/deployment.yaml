@@ -13,6 +13,13 @@ spec:
       labels:
         app: sweeparr
     spec:
+      initContainers:
+        - name: init-permissions
+          image: busybox:latest
+          command: ["sh", "-c", "mkdir -p /app/data && chmod -R 777 /app/data"]
+          volumeMounts:
+            - name: data
+              mountPath: /app/data
       containers:
         - name: sweeparr
           image: ghcr.io/jtmb/sweeparr:latest
