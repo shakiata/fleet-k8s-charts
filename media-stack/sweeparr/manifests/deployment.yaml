@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sweeparr
+  namespace: media-stack
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sweeparr
+  template:
+    metadata:
+      labels:
+        app: sweeparr
+    spec:
+      containers:
+        - name: sweeparr
+          image: ghcr.io/jtmb/sweeparr:latest
+          env:
+            - name: DATABASE_URL
+              value: "file:/app/data/db.sqlite"
+            - name: NODE_ENV
+              value: "production"
+            - name: PORT
+              value: "3000"
+          ports:
+            - containerPort: 3000
+              protocol: TCP
+          volumeMounts:
+            - name: data
+              mountPath: /app/data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: sweeparr-data-pvc

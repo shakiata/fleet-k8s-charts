@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sweeparr-ingress
+  namespace: media-stack
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    gethomepage.dev/description: Media Cleanup Manager
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/group: Media
+    gethomepage.dev/icon: https://raw.githubusercontent.com/jtmb/sweeparr/main/src/assets/logo.svg
+    gethomepage.dev/name: Sweeparr
+    gethomepage.dev/pod-selector: ""
+spec:
+  rules:
+    - host: sweeparr.rke
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: sweeparr-service
+                port:
+                  number: 3000
